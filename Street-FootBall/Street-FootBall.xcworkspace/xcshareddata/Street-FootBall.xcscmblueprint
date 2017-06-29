@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "8B091A1D8F5F8BC2C08EB8FD21EEAC88F0622A33",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "72622F8426215E61CFC367A4BB7ADB654641B76E" : 9223372036854775807,
+    "38A439CC6D9ED8AFD37DBD0658D4EAB6606B6251" : 9223372036854775807,
+    "8B091A1D8F5F8BC2C08EB8FD21EEAC88F0622A33" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "43D4C06E-369E-425A-AE82-73FA8DFF523A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "72622F8426215E61CFC367A4BB7ADB654641B76E" : "UI-Asignment\/",
+    "38A439CC6D9ED8AFD37DBD0658D4EAB6606B6251" : "FootBallSocial\/FootBallSocial\/",
+    "8B091A1D8F5F8BC2C08EB8FD21EEAC88F0622A33" : "FootBall-Street\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Street-FootBall",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Street-FootBall\/Street-FootBall.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/knguyenuit\/FootBallSocial.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "38A439CC6D9ED8AFD37DBD0658D4EAB6606B6251"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/knguyenuit\/UI-BSS",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "72622F8426215E61CFC367A4BB7ADB654641B76E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/knguyenuit\/Street-FootBall",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8B091A1D8F5F8BC2C08EB8FD21EEAC88F0622A33"
+    }
+  ]
+}

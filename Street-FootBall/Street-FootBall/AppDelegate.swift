@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FIRApp.configure()
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        window?.rootViewController = CreatePitchViewController(nibName: "CreatePitchViewController", bundle: nil)
+//        window?.makeKeyAndVisible()
+//        GMSServices.provideAPIKey("AIzaSyCaNIA8p6P0fRDHDXP9FGUUX7h8Iwqbayg")
+//        GMSPlacesClient.provideAPIKey("AIzaSyCaNIA8p6P0fRDHDXP9FGUUX7h8Iwqbayg")
+//        GMSServices.provideAPIKey("AIzaSyCaNIA8p6P0fRDHDXP9FGUUX7h8Iwqbayg")
+        
         return true
     }
 

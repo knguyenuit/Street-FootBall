@@ -1,0 +1,6 @@
+framework module Pods_Street_FootBall {
+  umbrella header "Pods-Street-FootBall-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -12,9 +12,43 @@
 		8B00BD0E1EF77FAB000A391A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B00BD0C1EF77FAB000A391A /* Main.storyboard */; };
 		8B00BD101EF77FAB000A391A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B00BD0F1EF77FAB000A391A /* Assets.xcassets */; };
 		8B00BD131EF77FAB000A391A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B00BD111EF77FAB000A391A /* LaunchScreen.storyboard */; };
+		8B151AB21F025B62007DAF1C /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B151AB01F025B62007DAF1C /* TabbarViewController.swift */; };
+		8B151AB31F025B62007DAF1C /* TabbarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B151AB11F025B62007DAF1C /* TabbarViewController.xib */; };
+		8B151AB61F025B74007DAF1C /* PitchOwnerLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B151AB41F025B74007DAF1C /* PitchOwnerLoginViewController.swift */; };
+		8B151AB71F025B74007DAF1C /* PitchOwnerLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B151AB51F025B74007DAF1C /* PitchOwnerLoginViewController.xib */; };
+		8B23BE041F00A74F00B65659 /* APIPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B23BE031F00A74F00B65659 /* APIPagination.swift */; };
+		8B23BE061F00A76200B65659 /* BaseAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B23BE051F00A76200B65659 /* BaseAPIError.swift */; };
+		8B23BE081F00A78400B65659 /* BaseAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B23BE071F00A78400B65659 /* BaseAPIResponse.swift */; };
+		8B23BE0A1F00A79B00B65659 /* ListPitchReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B23BE091F00A79B00B65659 /* ListPitchReponse.swift */; };
+		8B23BE0C1F00A7AF00B65659 /* Pitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B23BE0B1F00A7AF00B65659 /* Pitch.swift */; };
+		8B23BE0E1F00A8B500B65659 /* Net.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B23BE0D1F00A8B500B65659 /* Net.swift */; };
+		8B23BE111F00BEB000B65659 /* PitchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B23BE0F1F00BEB000B65659 /* PitchDetailViewController.swift */; };
+		8B23BE121F00BEB000B65659 /* PitchDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B23BE101F00BEB000B65659 /* PitchDetailViewController.xib */; };
+		8B262BB21F01FBF50092981C /* PitchMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B262BB01F01FBF50092981C /* PitchMapViewController.swift */; };
+		8B262BB31F01FBF50092981C /* PitchMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B262BB11F01FBF50092981C /* PitchMapViewController.xib */; };
+		8B262BC31F0259670092981C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B262BC11F0259670092981C /* SignUpViewController.swift */; };
+		8B262BC41F0259670092981C /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B262BC21F0259670092981C /* SignUpViewController.xib */; };
+		8B307C741EF9250500BADC89 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B307C731EF9250500BADC89 /* InitViewController.swift */; };
+		8B8F45AC1F04B50B001877F6 /* PitchOwnerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F45AA1F04B50B001877F6 /* PitchOwnerProfileViewController.swift */; };
+		8B8F45AD1F04B50B001877F6 /* PitchOwnerProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8F45AB1F04B50B001877F6 /* PitchOwnerProfileViewController.xib */; };
+		8B8F45AF1F04DA57001877F6 /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F45AE1F04DA57001877F6 /* GlobalVariable.swift */; };
+		8BA91A7F1EFA0794009B619F /* ListPitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA91A7D1EFA0794009B619F /* ListPitchViewController.swift */; };
+		8BA91A801EFA0794009B619F /* ListPitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BA91A7E1EFA0794009B619F /* ListPitchViewController.xib */; };
+		8BA91A871EFA0819009B619F /* ListPitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA91A851EFA0819009B619F /* ListPitchTableViewCell.swift */; };
+		8BA91A881EFA0819009B619F /* ListPitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BA91A861EFA0819009B619F /* ListPitchTableViewCell.xib */; };
+		8BD9CC401EFB6C0C00FFC26C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9CC3F1EFB6C0C00FFC26C /* User.swift */; };
+		8BD9CC431EFBA49400FFC26C /* CreatePitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD9CC411EFBA49400FFC26C /* CreatePitchViewController.swift */; };
+		8BD9CC441EFBA49400FFC26C /* CreatePitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BD9CC421EFBA49400FFC26C /* CreatePitchViewController.xib */; };
+		8BD9CC461EFBC2DA00FFC26C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BD9CC451EFBC2DA00FFC26C /* GoogleService-Info.plist */; };
+		8BEC587D1F03B6FD00A74029 /* SearchPitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEC587B1F03B6FD00A74029 /* SearchPitchViewController.swift */; };
+		8BEC587E1F03B6FD00A74029 /* SearchPitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BEC587C1F03B6FD00A74029 /* SearchPitchViewController.xib */; };
+		8BEC58811F03B96600A74029 /* TabbarControllerPitchOwnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEC587F1F03B96600A74029 /* TabbarControllerPitchOwnerViewController.swift */; };
+		8BEC58821F03B96600A74029 /* TabbarControllerPitchOwnerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BEC58801F03B96600A74029 /* TabbarControllerPitchOwnerViewController.xib */; };
+		8CA0141F0EF1B7235A73A37F /* Pods_Street_FootBall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CCC7400B2202ECF040A655E /* Pods_Street_FootBall.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3CCC7400B2202ECF040A655E /* Pods_Street_FootBall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Street_FootBall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B00BD051EF77FAB000A391A /* Street-FootBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Street-FootBall.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B00BD081EF77FAB000A391A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B00BD0A1EF77FAB000A391A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +56,40 @@
 		8B00BD0F1EF77FAB000A391A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B00BD121EF77FAB000A391A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B00BD141EF77FAB000A391A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B151AB01F025B62007DAF1C /* TabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabbarViewController.swift; path = Views/TabbarViewController.swift; sourceTree = "<group>"; };
+		8B151AB11F025B62007DAF1C /* TabbarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TabbarViewController.xib; path = Views/TabbarViewController.xib; sourceTree = "<group>"; };
+		8B151AB41F025B74007DAF1C /* PitchOwnerLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PitchOwnerLoginViewController.swift; path = Views/PitchOwnerLoginViewController.swift; sourceTree = "<group>"; };
+		8B151AB51F025B74007DAF1C /* PitchOwnerLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PitchOwnerLoginViewController.xib; path = Views/PitchOwnerLoginViewController.xib; sourceTree = "<group>"; };
+		8B23BE031F00A74F00B65659 /* APIPagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIPagination.swift; path = Net/APIPagination.swift; sourceTree = "<group>"; };
+		8B23BE051F00A76200B65659 /* BaseAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseAPIError.swift; path = Net/BaseAPIError.swift; sourceTree = "<group>"; };
+		8B23BE071F00A78400B65659 /* BaseAPIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseAPIResponse.swift; path = Net/BaseAPIResponse.swift; sourceTree = "<group>"; };
+		8B23BE091F00A79B00B65659 /* ListPitchReponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPitchReponse.swift; sourceTree = "<group>"; };
+		8B23BE0B1F00A7AF00B65659 /* Pitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pitch.swift; path = Model/Pitch.swift; sourceTree = "<group>"; };
+		8B23BE0D1F00A8B500B65659 /* Net.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Net.swift; path = Net/Net.swift; sourceTree = "<group>"; };
+		8B23BE0F1F00BEB000B65659 /* PitchDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PitchDetailViewController.swift; path = Views/PitchDetailViewController.swift; sourceTree = "<group>"; };
+		8B23BE101F00BEB000B65659 /* PitchDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PitchDetailViewController.xib; path = Views/PitchDetailViewController.xib; sourceTree = "<group>"; };
+		8B262BB01F01FBF50092981C /* PitchMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PitchMapViewController.swift; path = Views/PitchMapViewController.swift; sourceTree = "<group>"; };
+		8B262BB11F01FBF50092981C /* PitchMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PitchMapViewController.xib; path = Views/PitchMapViewController.xib; sourceTree = "<group>"; };
+		8B262BC11F0259670092981C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Views/SignUpViewController.swift; sourceTree = "<group>"; };
+		8B262BC21F0259670092981C /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = Views/SignUpViewController.xib; sourceTree = "<group>"; };
+		8B307C731EF9250500BADC89 /* InitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitViewController.swift; path = Controller/InitViewController.swift; sourceTree = "<group>"; };
+		8B8F45AA1F04B50B001877F6 /* PitchOwnerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PitchOwnerProfileViewController.swift; path = Views/PitchOwnerProfileViewController.swift; sourceTree = "<group>"; };
+		8B8F45AB1F04B50B001877F6 /* PitchOwnerProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PitchOwnerProfileViewController.xib; path = Views/PitchOwnerProfileViewController.xib; sourceTree = "<group>"; };
+		8B8F45AE1F04DA57001877F6 /* GlobalVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalVariable.swift; path = Model/GlobalVariable.swift; sourceTree = "<group>"; };
+		8BA91A7D1EFA0794009B619F /* ListPitchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListPitchViewController.swift; path = Views/ListPitchViewController.swift; sourceTree = "<group>"; };
+		8BA91A7E1EFA0794009B619F /* ListPitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListPitchViewController.xib; path = Views/ListPitchViewController.xib; sourceTree = "<group>"; };
+		8BA91A851EFA0819009B619F /* ListPitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListPitchTableViewCell.swift; path = Views/ListPitchTableViewCell.swift; sourceTree = "<group>"; };
+		8BA91A861EFA0819009B619F /* ListPitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListPitchTableViewCell.xib; path = Views/ListPitchTableViewCell.xib; sourceTree = "<group>"; };
+		8BD9CC3F1EFB6C0C00FFC26C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
+		8BD9CC411EFBA49400FFC26C /* CreatePitchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePitchViewController.swift; path = Views/CreatePitchViewController.swift; sourceTree = "<group>"; };
+		8BD9CC421EFBA49400FFC26C /* CreatePitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreatePitchViewController.xib; path = Views/CreatePitchViewController.xib; sourceTree = "<group>"; };
+		8BD9CC451EFBC2DA00FFC26C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		8BEC587B1F03B6FD00A74029 /* SearchPitchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPitchViewController.swift; path = Views/SearchPitchViewController.swift; sourceTree = "<group>"; };
+		8BEC587C1F03B6FD00A74029 /* SearchPitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SearchPitchViewController.xib; path = Views/SearchPitchViewController.xib; sourceTree = "<group>"; };
+		8BEC587F1F03B96600A74029 /* TabbarControllerPitchOwnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabbarControllerPitchOwnerViewController.swift; path = Views/TabbarControllerPitchOwnerViewController.swift; sourceTree = "<group>"; };
+		8BEC58801F03B96600A74029 /* TabbarControllerPitchOwnerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TabbarControllerPitchOwnerViewController.xib; path = Views/TabbarControllerPitchOwnerViewController.xib; sourceTree = "<group>"; };
+		910C0F09D0AA001C907908E6 /* Pods-Street-FootBall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Street-FootBall.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Street-FootBall/Pods-Street-FootBall.debug.xcconfig"; sourceTree = "<group>"; };
+		BC2F49D662B1E61638242103 /* Pods-Street-FootBall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Street-FootBall.release.xcconfig"; path = "Pods/Target Support Files/Pods-Street-FootBall/Pods-Street-FootBall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CA0141F0EF1B7235A73A37F /* Pods_Street_FootBall.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +109,8 @@
 			children = (
 				8B00BD071EF77FAB000A391A /* Street-FootBall */,
 				8B00BD061EF77FAB000A391A /* Products */,
+				AB0B2FCC106E899E375664BB /* Pods */,
+				A90E7784AD573AD30379E12A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +125,183 @@
 		8B00BD071EF77FAB000A391A /* Street-FootBall */ = {
 			isa = PBXGroup;
 			children = (
+				8B307C721EF916C800BADC89 /* Controller */,
+				8B307C711EF916BF00BADC89 /* Net */,
+				8B307C701EF916B800BADC89 /* Model */,
+				8B307C6F1EF916B000BADC89 /* Views */,
 				8B00BD081EF77FAB000A391A /* AppDelegate.swift */,
 				8B00BD0A1EF77FAB000A391A /* ViewController.swift */,
 				8B00BD0C1EF77FAB000A391A /* Main.storyboard */,
 				8B00BD0F1EF77FAB000A391A /* Assets.xcassets */,
 				8B00BD111EF77FAB000A391A /* LaunchScreen.storyboard */,
+				8BD9CC451EFBC2DA00FFC26C /* GoogleService-Info.plist */,
 				8B00BD141EF77FAB000A391A /* Info.plist */,
 			);
 			path = "Street-FootBall";
+			sourceTree = "<group>";
+		};
+		8B23BE021F00A72500B65659 /* APIreponse */ = {
+			isa = PBXGroup;
+			children = (
+				8B23BE031F00A74F00B65659 /* APIPagination.swift */,
+				8B23BE051F00A76200B65659 /* BaseAPIError.swift */,
+				8B23BE071F00A78400B65659 /* BaseAPIResponse.swift */,
+				8B23BE091F00A79B00B65659 /* ListPitchReponse.swift */,
+			);
+			name = APIreponse;
+			sourceTree = "<group>";
+		};
+		8B262BB61F024A300092981C /* Tab Bar Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B151AB01F025B62007DAF1C /* TabbarViewController.swift */,
+				8B151AB11F025B62007DAF1C /* TabbarViewController.xib */,
+				8BEC587F1F03B96600A74029 /* TabbarControllerPitchOwnerViewController.swift */,
+				8BEC58801F03B96600A74029 /* TabbarControllerPitchOwnerViewController.xib */,
+			);
+			name = "Tab Bar Controller";
+			sourceTree = "<group>";
+		};
+		8B307C6F1EF916B000BADC89 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8BA91A821EFA07E4009B619F /* Cell */,
+				8BA91A811EFA07C7009B619F /* View Controllers */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		8B307C701EF916B800BADC89 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8BD9CC3F1EFB6C0C00FFC26C /* User.swift */,
+				8B23BE0B1F00A7AF00B65659 /* Pitch.swift */,
+				8B8F45AE1F04DA57001877F6 /* GlobalVariable.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8B307C711EF916BF00BADC89 /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				8B23BE021F00A72500B65659 /* APIreponse */,
+				8B23BE0D1F00A8B500B65659 /* Net.swift */,
+			);
+			name = Net;
+			sourceTree = "<group>";
+		};
+		8B307C721EF916C800BADC89 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B307C731EF9250500BADC89 /* InitViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		8B8F45A91F04B4D2001877F6 /* Pitch Owner */ = {
+			isa = PBXGroup;
+			children = (
+				8B8F45AA1F04B50B001877F6 /* PitchOwnerProfileViewController.swift */,
+				8B8F45AB1F04B50B001877F6 /* PitchOwnerProfileViewController.xib */,
+			);
+			name = "Pitch Owner";
+			sourceTree = "<group>";
+		};
+		8BA91A811EFA07C7009B619F /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8B262BB61F024A300092981C /* Tab Bar Controller */,
+				8BA91A8C1EFA1787009B619F /* Pitch */,
+				8BA91A8B1EFA1773009B619F /* Login */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		8BA91A821EFA07E4009B619F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8BA91A851EFA0819009B619F /* ListPitchTableViewCell.swift */,
+				8BA91A861EFA0819009B619F /* ListPitchTableViewCell.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		8BA91A8B1EFA1773009B619F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8B151AB41F025B74007DAF1C /* PitchOwnerLoginViewController.swift */,
+				8B151AB51F025B74007DAF1C /* PitchOwnerLoginViewController.xib */,
+				8B262BC11F0259670092981C /* SignUpViewController.swift */,
+				8B262BC21F0259670092981C /* SignUpViewController.xib */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		8BA91A8C1EFA1787009B619F /* Pitch */ = {
+			isa = PBXGroup;
+			children = (
+				8B8F45A91F04B4D2001877F6 /* Pitch Owner */,
+				8BEC587A1F03B6A200A74029 /* Search Pitch */,
+				8BEC58791F03B68C00A74029 /* Create Pitch */,
+				8BEC58781F03B67E00A74029 /* List Pitch */,
+				8BEC58771F03B66800A74029 /* Pitch Detail */,
+			);
+			name = Pitch;
+			sourceTree = "<group>";
+		};
+		8BEC58771F03B66800A74029 /* Pitch Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8B23BE0F1F00BEB000B65659 /* PitchDetailViewController.swift */,
+				8B23BE101F00BEB000B65659 /* PitchDetailViewController.xib */,
+				8B262BB01F01FBF50092981C /* PitchMapViewController.swift */,
+				8B262BB11F01FBF50092981C /* PitchMapViewController.xib */,
+			);
+			name = "Pitch Detail";
+			sourceTree = "<group>";
+		};
+		8BEC58781F03B67E00A74029 /* List Pitch */ = {
+			isa = PBXGroup;
+			children = (
+				8BA91A7D1EFA0794009B619F /* ListPitchViewController.swift */,
+				8BA91A7E1EFA0794009B619F /* ListPitchViewController.xib */,
+			);
+			name = "List Pitch";
+			sourceTree = "<group>";
+		};
+		8BEC58791F03B68C00A74029 /* Create Pitch */ = {
+			isa = PBXGroup;
+			children = (
+				8BD9CC411EFBA49400FFC26C /* CreatePitchViewController.swift */,
+				8BD9CC421EFBA49400FFC26C /* CreatePitchViewController.xib */,
+			);
+			name = "Create Pitch";
+			sourceTree = "<group>";
+		};
+		8BEC587A1F03B6A200A74029 /* Search Pitch */ = {
+			isa = PBXGroup;
+			children = (
+				8BEC587B1F03B6FD00A74029 /* SearchPitchViewController.swift */,
+				8BEC587C1F03B6FD00A74029 /* SearchPitchViewController.xib */,
+			);
+			name = "Search Pitch";
+			sourceTree = "<group>";
+		};
+		A90E7784AD573AD30379E12A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3CCC7400B2202ECF040A655E /* Pods_Street_FootBall.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB0B2FCC106E899E375664BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				910C0F09D0AA001C907908E6 /* Pods-Street-FootBall.debug.xcconfig */,
+				BC2F49D662B1E61638242103 /* Pods-Street-FootBall.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +311,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B00BD171EF77FAB000A391A /* Build configuration list for PBXNativeTarget "Street-FootBall" */;
 			buildPhases = (
+				A7B31E57029AA8A9D8A3BC38 /* [CP] Check Pods Manifest.lock */,
 				8B00BD011EF77FAB000A391A /* Sources */,
 				8B00BD021EF77FAB000A391A /* Frameworks */,
 				8B00BD031EF77FAB000A391A /* Resources */,
+				80FA0A572A984FFC800B943C /* [CP] Embed Pods Frameworks */,
+				D28CCA60F557A6BA382C9F42 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +339,7 @@
 				TargetAttributes = {
 					8B00BD041EF77FAB000A391A = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = WQDD59G548;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -123,13 +367,73 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BEC587E1F03B6FD00A74029 /* SearchPitchViewController.xib in Resources */,
+				8B23BE121F00BEB000B65659 /* PitchDetailViewController.xib in Resources */,
+				8BA91A801EFA0794009B619F /* ListPitchViewController.xib in Resources */,
 				8B00BD131EF77FAB000A391A /* LaunchScreen.storyboard in Resources */,
+				8BD9CC461EFBC2DA00FFC26C /* GoogleService-Info.plist in Resources */,
+				8B262BC41F0259670092981C /* SignUpViewController.xib in Resources */,
+				8B8F45AD1F04B50B001877F6 /* PitchOwnerProfileViewController.xib in Resources */,
+				8BD9CC441EFBA49400FFC26C /* CreatePitchViewController.xib in Resources */,
 				8B00BD101EF77FAB000A391A /* Assets.xcassets in Resources */,
 				8B00BD0E1EF77FAB000A391A /* Main.storyboard in Resources */,
+				8B151AB31F025B62007DAF1C /* TabbarViewController.xib in Resources */,
+				8BA91A881EFA0819009B619F /* ListPitchTableViewCell.xib in Resources */,
+				8BEC58821F03B96600A74029 /* TabbarControllerPitchOwnerViewController.xib in Resources */,
+				8B262BB31F01FBF50092981C /* PitchMapViewController.xib in Resources */,
+				8B151AB71F025B74007DAF1C /* PitchOwnerLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		80FA0A572A984FFC800B943C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Street-FootBall/Pods-Street-FootBall-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7B31E57029AA8A9D8A3BC38 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D28CCA60F557A6BA382C9F42 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Street-FootBall/Pods-Street-FootBall-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8B00BD011EF77FAB000A391A /* Sources */ = {
@@ -137,7 +441,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B00BD0B1EF77FAB000A391A /* ViewController.swift in Sources */,
+				8B23BE061F00A76200B65659 /* BaseAPIError.swift in Sources */,
+				8BEC587D1F03B6FD00A74029 /* SearchPitchViewController.swift in Sources */,
+				8B262BB21F01FBF50092981C /* PitchMapViewController.swift in Sources */,
+				8BA91A7F1EFA0794009B619F /* ListPitchViewController.swift in Sources */,
+				8B23BE111F00BEB000B65659 /* PitchDetailViewController.swift in Sources */,
+				8B8F45AC1F04B50B001877F6 /* PitchOwnerProfileViewController.swift in Sources */,
+				8B262BC31F0259670092981C /* SignUpViewController.swift in Sources */,
+				8BD9CC401EFB6C0C00FFC26C /* User.swift in Sources */,
+				8B151AB21F025B62007DAF1C /* TabbarViewController.swift in Sources */,
 				8B00BD091EF77FAB000A391A /* AppDelegate.swift in Sources */,
+				8B151AB61F025B74007DAF1C /* PitchOwnerLoginViewController.swift in Sources */,
+				8BA91A871EFA0819009B619F /* ListPitchTableViewCell.swift in Sources */,
+				8B23BE0C1F00A7AF00B65659 /* Pitch.swift in Sources */,
+				8B23BE081F00A78400B65659 /* BaseAPIResponse.swift in Sources */,
+				8B23BE0E1F00A8B500B65659 /* Net.swift in Sources */,
+				8BEC58811F03B96600A74029 /* TabbarControllerPitchOwnerViewController.swift in Sources */,
+				8BD9CC431EFBA49400FFC26C /* CreatePitchViewController.swift in Sources */,
+				8B23BE0A1F00A79B00B65659 /* ListPitchReponse.swift in Sources */,
+				8B23BE041F00A74F00B65659 /* APIPagination.swift in Sources */,
+				8B8F45AF1F04DA57001877F6 /* GlobalVariable.swift in Sources */,
+				8B307C741EF9250500BADC89 /* InitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +580,10 @@
 		};
 		8B00BD181EF77FAB000A391A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 910C0F09D0AA001C907908E6 /* Pods-Street-FootBall.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WQDD59G548;
 				INFOPLIST_FILE = "Street-FootBall/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KhanhNguyen.Street-FootBall";
@@ -268,8 +594,10 @@
 		};
 		8B00BD191EF77FAB000A391A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC2F49D662B1E61638242103 /* Pods-Street-FootBall.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WQDD59G548;
 				INFOPLIST_FILE = "Street-FootBall/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KhanhNguyen.Street-FootBall";
@@ -297,6 +625,7 @@
 				8B00BD191EF77FAB000A391A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

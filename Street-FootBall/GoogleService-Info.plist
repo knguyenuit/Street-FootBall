@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>32020123893-jv7pg5ocfg6bucjdab0nek2o9s5cjadq.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.32020123893-jv7pg5ocfg6bucjdab0nek2o9s5cjadq</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBc8CN2G7OmD4p93W1CYghT3H7ENEopnBg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>32020123893</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.streetfootball.ios</string>
+	<key>PROJECT_ID</key>
+	<string>street-football-efe38</string>
+	<key>STORAGE_BUCKET</key>
+	<string>street-football-efe38.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:32020123893:ios:ad44b0e20ec074d5</string>
+	<key>DATABASE_URL</key>
+	<string>https://street-football-efe38.firebaseio.com</string>
+</dict>
+</plist>

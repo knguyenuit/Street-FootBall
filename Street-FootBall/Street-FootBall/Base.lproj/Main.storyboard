@@ -1,30 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ydC-dD-src">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Init View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Street_FootBall" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="InitViewController" customModule="Street_FootBall" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <view key="view" contentMode="scaleToFill" id="kFq-Tj-bEs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="old-trafford-wallpaper-2012-2013-matchday" translatesAutoresizingMaskIntoConstraints="NO" id="mkm-3z-uPP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.47579061989999999" green="0.84007519480000004" blue="0.97743874789999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7V-xX-HOy" userLabel="vContent">
+                                <rect key="frame" x="16" y="208" width="343" height="459"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJm-Z1-efx">
+                                        <rect key="frame" x="69" y="10" width="206" height="199.5"/>
+                                        <color key="backgroundColor" red="0.30411589150000001" green="0.67296129469999999" blue="0.62724971770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="33"/>
+                                        <state key="normal" title="Chủ Sân">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnShowPitchOwnerLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8wX-hc-ttk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95j-Jo-2Ei">
+                                        <rect key="frame" x="69" y="249.5" width="206" height="199.5"/>
+                                        <color key="backgroundColor" red="0.30411589150000001" green="0.67296129469999999" blue="0.62724971770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="33"/>
+                                        <state key="normal" title="Cầu Thủ">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnPlayerClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xjE-B1-wOV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="UJm-Z1-efx" firstAttribute="width" secondItem="w7V-xX-HOy" secondAttribute="width" multiplier="3/5" id="3Rk-WK-OKg"/>
+                                    <constraint firstItem="UJm-Z1-efx" firstAttribute="height" secondItem="95j-Jo-2Ei" secondAttribute="height" id="AwB-Ra-ob0"/>
+                                    <constraint firstItem="95j-Jo-2Ei" firstAttribute="centerX" secondItem="w7V-xX-HOy" secondAttribute="centerX" id="DPU-3q-kyi"/>
+                                    <constraint firstItem="UJm-Z1-efx" firstAttribute="top" secondItem="w7V-xX-HOy" secondAttribute="top" constant="10" id="NC8-UM-pB1"/>
+                                    <constraint firstItem="95j-Jo-2Ei" firstAttribute="width" secondItem="UJm-Z1-efx" secondAttribute="width" id="RQB-qa-X4j"/>
+                                    <constraint firstItem="UJm-Z1-efx" firstAttribute="centerX" secondItem="w7V-xX-HOy" secondAttribute="centerX" id="ie6-hs-9EF"/>
+                                    <constraint firstAttribute="bottom" secondItem="95j-Jo-2Ei" secondAttribute="bottom" constant="10" id="nnr-uz-EaF"/>
+                                    <constraint firstItem="95j-Jo-2Ei" firstAttribute="top" secondItem="UJm-Z1-efx" secondAttribute="bottom" constant="40" id="vgi-lC-83z"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l27-eD-oJs" userLabel="vHeader">
+                                <rect key="frame" x="68" y="80" width="240" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bạn là !!?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1WN-IM-axK">
+                                        <rect key="frame" x="4" y="21" width="232" height="85"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="ZwE-b7-eDv"/>
+                                            <constraint firstAttribute="width" constant="232" id="azr-3f-mMR"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="30"/>
+                                        <color key="textColor" red="1" green="0.5548266369" blue="0.095578917390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1WN-IM-axK" firstAttribute="centerX" secondItem="l27-eD-oJs" secondAttribute="centerX" id="GiI-v1-EZk"/>
+                                    <constraint firstItem="1WN-IM-axK" firstAttribute="centerY" secondItem="l27-eD-oJs" secondAttribute="centerY" id="Lqa-LA-Sk4"/>
+                                    <constraint firstAttribute="height" constant="128" id="XkT-0V-ZnV"/>
+                                    <constraint firstAttribute="width" constant="240" id="p4B-Tl-D2v"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.30411589150000001" green="0.67296129469999999" blue="0.62724971770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="l27-eD-oJs" firstAttribute="centerX" secondItem="kFq-Tj-bEs" secondAttribute="centerX" id="8aA-wh-TLG"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mkm-3z-uPP" secondAttribute="bottom" id="ElV-vK-HEH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="w7V-xX-HOy" secondAttribute="bottom" id="Hsm-bl-Bjd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w7V-xX-HOy" secondAttribute="trailing" id="M2j-d4-rW0"/>
+                            <constraint firstItem="mkm-3z-uPP" firstAttribute="leading" secondItem="kFq-Tj-bEs" secondAttribute="leading" id="NmC-ol-KJa"/>
+                            <constraint firstAttribute="trailing" secondItem="mkm-3z-uPP" secondAttribute="trailing" id="SUo-bi-lDI"/>
+                            <constraint firstItem="l27-eD-oJs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="Sp8-jO-P0x"/>
+                            <constraint firstItem="w7V-xX-HOy" firstAttribute="leading" secondItem="kFq-Tj-bEs" secondAttribute="leadingMargin" id="UqY-he-oFr"/>
+                            <constraint firstItem="w7V-xX-HOy" firstAttribute="top" secondItem="l27-eD-oJs" secondAttribute="bottom" id="fw9-KX-Ggi"/>
+                            <constraint firstItem="mkm-3z-uPP" firstAttribute="top" secondItem="kFq-Tj-bEs" secondAttribute="top" id="oWv-wk-41l"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="VjO-Qm-cxY"/>
+                    <connections>
+                        <outlet property="btnPitchOwner" destination="UJm-Z1-efx" id="Mdp-18-5rH"/>
+                        <outlet property="btnPlayer" destination="95j-Jo-2Ei" id="vTN-EJ-WHW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1031.25" y="35.91549295774648"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eqF-Fc-mxQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ydC-dD-src" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" misplaced="YES" id="DI7-iS-g99">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="xa1-Nh-uNZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zzo-Ui-YID" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="33.75" y="35.91549295774648"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="old-trafford-wallpaper-2012-2013-matchday" width="902" height="1600"/>
+    </resources>
 </document>
