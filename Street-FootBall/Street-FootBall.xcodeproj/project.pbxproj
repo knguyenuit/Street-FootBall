@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B0089FF1F0E3521001C38FF /* ListPitchMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0089FD1F0E3521001C38FF /* ListPitchMapViewController.swift */; };
+		8B008A001F0E3521001C38FF /* ListPitchMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B0089FE1F0E3521001C38FF /* ListPitchMapViewController.xib */; };
 		8B00BD091EF77FAB000A391A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00BD081EF77FAB000A391A /* AppDelegate.swift */; };
 		8B00BD0B1EF77FAB000A391A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00BD0A1EF77FAB000A391A /* ViewController.swift */; };
 		8B00BD0E1EF77FAB000A391A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B00BD0C1EF77FAB000A391A /* Main.storyboard */; };
@@ -28,10 +30,11 @@
 		8B262BB31F01FBF50092981C /* PitchMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B262BB11F01FBF50092981C /* PitchMapViewController.xib */; };
 		8B262BC31F0259670092981C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B262BC11F0259670092981C /* SignUpViewController.swift */; };
 		8B262BC41F0259670092981C /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B262BC21F0259670092981C /* SignUpViewController.xib */; };
-		8B307C741EF9250500BADC89 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B307C731EF9250500BADC89 /* InitViewController.swift */; };
 		8B8F45AC1F04B50B001877F6 /* PitchOwnerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F45AA1F04B50B001877F6 /* PitchOwnerProfileViewController.swift */; };
 		8B8F45AD1F04B50B001877F6 /* PitchOwnerProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8F45AB1F04B50B001877F6 /* PitchOwnerProfileViewController.xib */; };
 		8B8F45AF1F04DA57001877F6 /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F45AE1F04DA57001877F6 /* GlobalVariable.swift */; };
+		8B8F45B71F050940001877F6 /* InitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F45B51F050940001877F6 /* InitViewController.swift */; };
+		8B8F45B81F050940001877F6 /* InitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8F45B61F050940001877F6 /* InitViewController.xib */; };
 		8BA91A7F1EFA0794009B619F /* ListPitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA91A7D1EFA0794009B619F /* ListPitchViewController.swift */; };
 		8BA91A801EFA0794009B619F /* ListPitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BA91A7E1EFA0794009B619F /* ListPitchViewController.xib */; };
 		8BA91A871EFA0819009B619F /* ListPitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA91A851EFA0819009B619F /* ListPitchTableViewCell.swift */; };
@@ -49,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		3CCC7400B2202ECF040A655E /* Pods_Street_FootBall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Street_FootBall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B0089FD1F0E3521001C38FF /* ListPitchMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListPitchMapViewController.swift; path = Views/ListPitchMapViewController.swift; sourceTree = "<group>"; };
+		8B0089FE1F0E3521001C38FF /* ListPitchMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListPitchMapViewController.xib; path = Views/ListPitchMapViewController.xib; sourceTree = "<group>"; };
 		8B00BD051EF77FAB000A391A /* Street-FootBall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Street-FootBall.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B00BD081EF77FAB000A391A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B00BD0A1EF77FAB000A391A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,10 +77,11 @@
 		8B262BB11F01FBF50092981C /* PitchMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PitchMapViewController.xib; path = Views/PitchMapViewController.xib; sourceTree = "<group>"; };
 		8B262BC11F0259670092981C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Views/SignUpViewController.swift; sourceTree = "<group>"; };
 		8B262BC21F0259670092981C /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = Views/SignUpViewController.xib; sourceTree = "<group>"; };
-		8B307C731EF9250500BADC89 /* InitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitViewController.swift; path = Controller/InitViewController.swift; sourceTree = "<group>"; };
 		8B8F45AA1F04B50B001877F6 /* PitchOwnerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PitchOwnerProfileViewController.swift; path = Views/PitchOwnerProfileViewController.swift; sourceTree = "<group>"; };
 		8B8F45AB1F04B50B001877F6 /* PitchOwnerProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PitchOwnerProfileViewController.xib; path = Views/PitchOwnerProfileViewController.xib; sourceTree = "<group>"; };
 		8B8F45AE1F04DA57001877F6 /* GlobalVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalVariable.swift; path = Model/GlobalVariable.swift; sourceTree = "<group>"; };
+		8B8F45B51F050940001877F6 /* InitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitViewController.swift; path = Views/InitViewController.swift; sourceTree = "<group>"; };
+		8B8F45B61F050940001877F6 /* InitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = InitViewController.xib; path = Views/InitViewController.xib; sourceTree = "<group>"; };
 		8BA91A7D1EFA0794009B619F /* ListPitchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListPitchViewController.swift; path = Views/ListPitchViewController.swift; sourceTree = "<group>"; };
 		8BA91A7E1EFA0794009B619F /* ListPitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListPitchViewController.xib; path = Views/ListPitchViewController.xib; sourceTree = "<group>"; };
 		8BA91A851EFA0819009B619F /* ListPitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListPitchTableViewCell.swift; path = Views/ListPitchTableViewCell.swift; sourceTree = "<group>"; };
@@ -104,6 +110,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B0089FC1F0E34FF001C38FF /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		8B00BCFC1EF77FAB000A391A = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +206,6 @@
 		8B307C721EF916C800BADC89 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8B307C731EF9250500BADC89 /* InitViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -207,9 +219,19 @@
 			name = "Pitch Owner";
 			sourceTree = "<group>";
 		};
+		8B8F45B21F04F156001877F6 /* Init */ = {
+			isa = PBXGroup;
+			children = (
+				8B8F45B51F050940001877F6 /* InitViewController.swift */,
+				8B8F45B61F050940001877F6 /* InitViewController.xib */,
+			);
+			name = Init;
+			sourceTree = "<group>";
+		};
 		8BA91A811EFA07C7009B619F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8B8F45B21F04F156001877F6 /* Init */,
 				8B262BB61F024A300092981C /* Tab Bar Controller */,
 				8BA91A8C1EFA1787009B619F /* Pitch */,
 				8BA91A8B1EFA1773009B619F /* Login */,
@@ -240,6 +262,7 @@
 		8BA91A8C1EFA1787009B619F /* Pitch */ = {
 			isa = PBXGroup;
 			children = (
+				8B0089FC1F0E34FF001C38FF /* New Group */,
 				8B8F45A91F04B4D2001877F6 /* Pitch Owner */,
 				8BEC587A1F03B6A200A74029 /* Search Pitch */,
 				8BEC58791F03B68C00A74029 /* Create Pitch */,
@@ -265,6 +288,8 @@
 			children = (
 				8BA91A7D1EFA0794009B619F /* ListPitchViewController.swift */,
 				8BA91A7E1EFA0794009B619F /* ListPitchViewController.xib */,
+				8B0089FD1F0E3521001C38FF /* ListPitchMapViewController.swift */,
+				8B0089FE1F0E3521001C38FF /* ListPitchMapViewController.xib */,
 			);
 			name = "List Pitch";
 			sourceTree = "<group>";
@@ -367,6 +392,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B008A001F0E3521001C38FF /* ListPitchMapViewController.xib in Resources */,
 				8BEC587E1F03B6FD00A74029 /* SearchPitchViewController.xib in Resources */,
 				8B23BE121F00BEB000B65659 /* PitchDetailViewController.xib in Resources */,
 				8BA91A801EFA0794009B619F /* ListPitchViewController.xib in Resources */,
@@ -377,6 +403,7 @@
 				8BD9CC441EFBA49400FFC26C /* CreatePitchViewController.xib in Resources */,
 				8B00BD101EF77FAB000A391A /* Assets.xcassets in Resources */,
 				8B00BD0E1EF77FAB000A391A /* Main.storyboard in Resources */,
+				8B8F45B81F050940001877F6 /* InitViewController.xib in Resources */,
 				8B151AB31F025B62007DAF1C /* TabbarViewController.xib in Resources */,
 				8BA91A881EFA0819009B619F /* ListPitchTableViewCell.xib in Resources */,
 				8BEC58821F03B96600A74029 /* TabbarControllerPitchOwnerViewController.xib in Resources */,
@@ -456,12 +483,13 @@
 				8B23BE0C1F00A7AF00B65659 /* Pitch.swift in Sources */,
 				8B23BE081F00A78400B65659 /* BaseAPIResponse.swift in Sources */,
 				8B23BE0E1F00A8B500B65659 /* Net.swift in Sources */,
+				8B0089FF1F0E3521001C38FF /* ListPitchMapViewController.swift in Sources */,
+				8B8F45B71F050940001877F6 /* InitViewController.swift in Sources */,
 				8BEC58811F03B96600A74029 /* TabbarControllerPitchOwnerViewController.swift in Sources */,
 				8BD9CC431EFBA49400FFC26C /* CreatePitchViewController.swift in Sources */,
 				8B23BE0A1F00A79B00B65659 /* ListPitchReponse.swift in Sources */,
 				8B23BE041F00A74F00B65659 /* APIPagination.swift in Sources */,
 				8B8F45AF1F04DA57001877F6 /* GlobalVariable.swift in Sources */,
-				8B307C741EF9250500BADC89 /* InitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

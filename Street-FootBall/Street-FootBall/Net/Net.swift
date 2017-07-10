@@ -12,20 +12,32 @@ import ObjectMapper
 import AlamofireActivityLogger
 import Alamofire
 import AFNetworking
+import BoltsSwift
 
-class Net{
+class Net {
     static var shared = Net()
     var lat = 0.0
     var lng = 0.0
     
-    func getPitch(success: @escaping ([Pitch]) -> Void){
-        let activityData = ActivityData()
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+    func showActivity() {
+        
+//        let activityData = ActivityData(size: CGSize(width: 50, height: 50), message: "Loading Pitch...", messageFont: UIFont(name: "Avenir-Light", size: 15.0)
+//        , type: NVActivityIndicatorType.ballBeat, color: UIColor.red, padding: 10, displayTimeThreshold: 100, minimumDisplayTime: 150, backgroundColor: UIColor.clear, textColor: UIColor.purple)
+//    
+//        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+    }
+    
+    func getPitch() -> Task<Any> {
+        let tcs = TaskCompletionSource<Any>()
+        print("----------Go to get ALL Pitch")
+        //alamofire
+        showActivity()
+        let queue = DispatchQueue(label: "com.test.api", qos: .background, attributes: .concurrent)
         
         Alamofire.request( "http://fooco.esy.es//public/api/pitch/get.php?type=list&by=all" , method: .post, parameters: nil, encoding: URLEncoding.default, headers : nil).log(level: .all, options: [.onlyDebug, .jsonPrettyPrint, .includeSeparator])
-            .responseJSON { (response) in
+            .responseJSON(queue: queue) { (response) in
                 
-                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+//                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                 
                 if let statusCode = response.response?.statusCode {
                     print("STATUS CODE \(statusCode)")
@@ -34,23 +46,22 @@ class Net{
                 switch response.result {
                 case .failure(let error) :
                     print(error)
+                    tcs.set(error: error)
                 case .success(let responseObject) :
-                    print("Nguyen \(responseObject)")
                     if let apiResponse = Mapper<APIResponseArray<Pitch>>().map(JSONObject: responseObject) {
                         apiResponse.datas?.forEach({ (result) in
                             Pitch.listPitch.append(result)
-                            
                         })
-                        success(Pitch.listPitch)
+                        tcs.set(result: Pitch.listPitch)
                     }
                 }
         }
+        return tcs.task
     }
     
-    func getPitchOwner(id: Int, success: @escaping ([Pitch]) -> Void){
-        let activityData = ActivityData()
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        
+    func getPitchOwner(id: Int) -> Task<Any> {
+        let tcs = TaskCompletionSource<Any>()
+        showActivity()
         Alamofire.request( "http://fooco.esy.es/public/api/owner/get.php" , method: .post, parameters: ["id":id], encoding: URLEncoding.default, headers : nil).log(level: .all, options: [.onlyDebug, .jsonPrettyPrint, .includeSeparator])
             .responseJSON { (response) in
                 
@@ -63,22 +74,24 @@ class Net{
                 switch response.result {
                 case .failure(let error) :
                     print(error)
+                    tcs.set(error: error)
                 case .success(let responseObject) :
                     print("Nguyen \(responseObject)")
                     if let apiResponse = Mapper<APIResponse<PitchOwnerReponse>>().map(JSONObject: responseObject) {
                         apiResponse.data?.pitchOwner.forEach({ (results) in
                             Pitch.listPitch.append(results)
                         })
-                        success(Pitch.listPitch)
+                        tcs.set(result: Pitch.listPitch)
                     }
                 }
         }
+        return tcs.task
     }
     
-    func getPitchByDistrict(id: Int = 2, success: @escaping ([Pitch]) -> Void){
-        let activityData = ActivityData()
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        
+    func getPitchByDistrict(id: Int = 2) -> Task<Any> {
+        showActivity()
+        print("----------Go to get PITCH BY DISTRICT")
+        let tcs = TaskCompletionSource<Any>()
         let param = ["by": "name_location", "location_id": "\(id)", "type":"list"]
         
         Alamofire.request( "http://fooco.esy.es/public/api/pitch/get.php" , method: .post, parameters: param, encoding: URLEncoding.default, headers : nil).log(level: .all, options: [.onlyDebug, .jsonPrettyPrint, .includeSeparator])
@@ -93,17 +106,19 @@ class Net{
                 switch response.result {
                 case .failure(let error) :
                     print(error)
+                    tcs.set(error: error)
                 case .success(let responseObject) :
                     if let apiResponse = Mapper<APIResponseArray<Pitch>>().map(JSONObject: responseObject) {
                         apiResponse.datas?.forEach({ (result) in
                             Pitch.listPitchByDistrict.append(result)
                         })
-                        success(Pitch.listPitchByDistrict)
+                        tcs.set(result: Pitch.listPitchByDistrict)
                     }
                 }
         }
+        return tcs.task
     }
-
+    
     func getCoordinateLocation(location: String, success: @escaping (Double, Double) -> Void){
         let temp1 = location.replacingOccurrences(of: "Đ", with: "D")
         let temp2 = temp1.replacingOccurrences(of: "đ", with: "d")
@@ -118,17 +133,19 @@ class Net{
                 if let apiResponse = Mapper<APIResponseArray<MapReponse>>().map(JSONObject: responseObject) {
                     apiResponse.result?.forEach({ (results) in
                         if results.geometry != nil {
-                       self.lat = (results.geometry?.location?.lat!)!
-                       self.lng = (results.geometry?.location?.lng!)!
-                        success(self.lat, self.lng)
-                    }
-                })
+                            self.lat = (results.geometry?.location?.lat!)!
+                            self.lng = (results.geometry?.location?.lng!)!
+                            success(self.lat, self.lng)
+                        }
+                    })
+                }
             }
         }
     }
-}
     
-    func getCoordinateLocation(location: String) {
+    func getCoordinate(location: String) -> Task<Any> {
+        showActivity()
+        let tcs = TaskCompletionSource<Any>()
         let temp1 = location.replacingOccurrences(of: "Đ", with: "D")
         let temp2 = temp1.replacingOccurrences(of: "đ", with: "d")
         let oldString = temp2.folding(options: .diacriticInsensitive, locale: .current)
@@ -138,76 +155,122 @@ class Net{
             case .failure(let error) :
                 print(error)
             case .success(let responseObject) :
-                print(responseObject)
+                
                 if let apiResponse = Mapper<APIResponseArray<MapReponse>>().map(JSONObject: responseObject) {
                     apiResponse.result?.forEach({ (results) in
-                        print(results.geometry?.location?.lat)
-                        
-                    })
-                    
-                    
-                    }
-            
-            }
-        }
-    }
-//
-//    func setBaseImageUrl(size:Int) -> String{
-//        return self.baseImageUrl + "\(size)"
-//    }
-    
-    
-}
-
-class NetMap: AFHTTPSessionManager {
-    var lat: Double = 0.0
-    var long: Double = 0.0
-    static var share = NetMap()
-    
-    func getMovies(success: @escaping ([Pitch]) -> Void){
-        self.get("http://fooco.esy.es//public/api/pitch/get.php?type=list&by=all", parameters: nil, progress: nil, success: { (task, data) in
-            if let data = data as? NSDictionary{
-                if let pitch = data.value(forKey: "data") as? [NSDictionary]{
-                    pitch.forEach({ (result) in
-                        let pitch = Pitch()
-                        pitch.pitchName = result.value(forKey: "pitchName")! as! String
-                        pitch.pitchLocation = result.value(forKey: "pitchLocation")! as! String
-                        pitch.pitchPhoneNumber = result.value(forKey: "pitchPhone")! as! String
-                        pitch.pitchImageURL = result.value(forKey: "pitchAvatar")! as! String
-                        Pitch.listPitch.append(pitch)
-                    })
-                    success(Pitch.listPitch)
-                }
-            }
-        }) { (task, error) in
-            print(error.localizedDescription)
-        }
-    }
-
-    
-    func getCoordinateLocation(location: String, success: @escaping (Double, Double) -> Void){
-        let temp1 = location.replacingOccurrences(of: "Đ", with: "D")
-        let temp2 = temp1.replacingOccurrences(of: "đ", with: "d")
-        let oldString = temp2.folding(options: .diacriticInsensitive, locale: .current)
-        let newString = oldString.replacingOccurrences(of: " ", with: "+")
-        self.get("https://maps.googleapis.com/maps/api/geocode/json?address="+"\(newString)"+"&key=AIzaSyBuUNcAJhyL2a2bUqmTYl760Kzk-usxeMg", parameters: nil, progress: nil, success: { (task, data) in
-            if let data = data as? NSDictionary{
-                print(data)
-                if let pitch = data.value(forKey: "results") as? NSArray{
-                    pitch.forEach({ (result) in
-                        if let geometry = (result as! NSDictionary).value(forKey: "geometry") as? NSDictionary{
-                            if let location = geometry.value(forKey: "location") as? NSDictionary{
-                                self.lat = location.value(forKey: "lat") as! Double
-                                self.long = location.value(forKey: "lng") as! Double
-                                success(Double(self.lat),self.long)
-                            }
+                        if results.geometry != nil {
+                            self.lat = (results.geometry?.location?.lat!)!
+                            self.lng = (results.geometry?.location?.lng!)!
+                            let coordinate = Location(lat: self.lat, lng: self.lng)
+                           tcs.set(result: coordinate)
                         }
                     })
                 }
             }
-        }) { (task, error) in
-            print(error.localizedDescription)
         }
+
+        return tcs.task
     }
+
+    
+//    func getPitch(success: @escaping ([Pitch]) -> Void){
+//        let activityData = ActivityData()
+//        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+//        
+//
+//        
+//        Alamofire.request( "http://fooco.esy.es//public/api/pitch/get.php?type=list&by=all" , method: .post, parameters: nil, encoding: URLEncoding.default, headers : nil).log(level: .all, options: [.onlyDebug, .jsonPrettyPrint, .includeSeparator])
+//            .responseJSON { (response) in
+//                
+//                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+//                
+//                if let statusCode = response.response?.statusCode {
+//                    print("STATUS CODE \(statusCode)")
+//                }
+//                
+//                switch response.result {
+//                case .failure(let error) :
+//                    print(error)
+//                case .success(let responseObject) :
+//                    print("Nguyen \(responseObject)")
+//                    if let apiResponse = Mapper<APIResponseArray<Pitch>>().map(JSONObject: responseObject) {
+//                        apiResponse.datas?.forEach({ (result) in
+//                            Pitch.listPitch.append(result)
+//                            
+//                        })
+//                        success(Pitch.listPitch)
+//                    }
+//                }
+//        }
+//    }
+    
+//    func getPitchOwner(id: Int, success: @escaping ([Pitch]) -> Void){
+//        let activityData = ActivityData()
+//        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+//        
+//        Alamofire.request( "http://fooco.esy.es/public/api/owner/get.php" , method: .post, parameters: ["id":id], encoding: URLEncoding.default, headers : nil).log(level: .all, options: [.onlyDebug, .jsonPrettyPrint, .includeSeparator])
+//            .responseJSON { (response) in
+//                
+//                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+//                
+//                if let statusCode = response.response?.statusCode {
+//                    print("STATUS CODE \(statusCode)")
+//                }
+//                
+//                switch response.result {
+//                case .failure(let error) :
+//                    print(error)
+//                case .success(let responseObject) :
+//                    print("Nguyen \(responseObject)")
+//                    if let apiResponse = Mapper<APIResponse<PitchOwnerReponse>>().map(JSONObject: responseObject) {
+//                        apiResponse.data?.pitchOwner.forEach({ (results) in
+//                            Pitch.listPitch.append(results)
+//                        })
+//                        success(Pitch.listPitch)
+//                    }
+//                }
+//        }
+//    }
+    
+    
+
+    
+//    func getPitchByDistrict(id: Int = 2, success: @escaping ([Pitch]) -> Void){
+//        let activityData = ActivityData()
+//        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+//        
+//        let param = ["by": "name_location", "location_id": "\(id)", "type":"list"]
+//        
+//        Alamofire.request( "http://fooco.esy.es/public/api/pitch/get.php" , method: .post, parameters: param, encoding: URLEncoding.default, headers : nil).log(level: .all, options: [.onlyDebug, .jsonPrettyPrint, .includeSeparator])
+//            .responseJSON { (response) in
+//                
+//                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+//                
+//                if let statusCode = response.response?.statusCode {
+//                    print("STATUS CODE \(statusCode)")
+//                }
+//                
+//                switch response.result {
+//                case .failure(let error) :
+//                    print(error)
+//                case .success(let responseObject) :
+//                    if let apiResponse = Mapper<APIResponseArray<Pitch>>().map(JSONObject: responseObject) {
+//                        apiResponse.datas?.forEach({ (result) in
+//                            Pitch.listPitchByDistrict.append(result)
+//                        })
+//                        success(Pitch.listPitchByDistrict)
+//                    }
+//                }
+//        }
+//    }
+
+    
+
+
+    
+
+    
     
 }
+
+

@@ -23,7 +23,7 @@ class PitchOwnerProfileViewController: UIViewController {
         super.viewDidLoad()
         tfPitchOwnerUserName.text = pitchOwnerUserName
         tfPitchOwnerEmail.text = pitchOwnerEmail
-        
+        navigationController?.setNavigationBarHidden(true, animated: false)
         // Do any additional setup after loading the view.
     }
 
@@ -35,6 +35,10 @@ class PitchOwnerProfileViewController: UIViewController {
     @IBAction func btnCreatePitchClick(_ sender: Any) {
         let vc = CreatePitchViewController(nibName: "CreatePitchViewController", bundle: nil)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func btnSignOutClick(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Logout"), object: nil)
     }
 
 }

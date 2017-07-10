@@ -32,7 +32,22 @@ class SearchPitchViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        Net.shared.getPitchByDistrict(success: refreshPitch)
+        if Pitch.listPitchByDistrict.isEmpty {
+        Net.shared.getPitchByDistrict().continueWith { (task) -> Void in
+            
+            if task.error != nil {
+                //
+            } else {
+                if let result = task.result as? [Pitch] {
+                    //khi thanh cong gio cast ve va reload lai data cua table view
+                    result.forEach({ (pitch) in
+                        Pitch.listPitchByDistrict.append(pitch)
+                    })
+                    self.tblListPitch.reloadData()
+                }
+            }
+        }
+        }
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -41,7 +56,20 @@ class SearchPitchViewController: UIViewController {
     
     func loadListPitchByDistrict(i: Int) {
         Pitch.listPitchByDistrict.removeAll()
-        Net.shared.getPitchByDistrict(id: i,success: refreshPitch)
+        Net.shared.getPitchByDistrict(id: i).continueWith { (task) -> Void in
+            
+            if task.error != nil {
+                //
+            } else {
+                if let result = task.result as? [Pitch] {
+                    //khi thanh cong gio cast ve va reload lai data cua table view
+                    result.forEach({ (pitch) in
+                        Pitch.listPitchByDistrict.append(pitch)
+                    })
+                    self.tblListPitch.reloadData()
+                }
+            }
+        }
     }
     
     func refreshPitch(pitch: [Pitch]){
@@ -73,11 +101,10 @@ extension SearchPitchViewController: UITableViewDelegate, UITableViewDataSource 
         let cell = tblListPitch.dequeueReusableCell(withIdentifier: "ListPitchCell") as! ListPitchTableViewCell
         cell.lbPitchName.text = Pitch.listPitchByDistrict[indexPath.row].name
         cell.lbPitchPhoneNumber.text = Pitch.listPitchByDistrict[indexPath.row].phone
-        cell.lbPitchAddress.text = Pitch.listPitchByDistrict[indexPath.row].location
+        cell.lbPitchAddress.text = Pitch.listPitchByDistrict[indexPath.row].location?.address
         cell.lbPitchCount.text = "5 Sân"
-        let imageUrl = NSURL(string: Pitch.listPitchByDistrict[indexPath.row].avatar!)
-        let data = NSData(contentsOf:imageUrl! as URL)
-        cell.ivPitchAvatar.image = UIImage(data: data! as Data)
+        let url = URL(string: Pitch.listPitch[indexPath.row].avatar!)
+        cell.ivPitchAvatar.kf.setImage(with: url)
         
         cell.contentView.backgroundColor = UIColor.clear
         let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 0, width: self.view.frame.size.width - 20, height: 85))
@@ -96,7 +123,7 @@ extension SearchPitchViewController: UITableViewDelegate, UITableViewDataSource 
         let detailViewController = PitchDetailViewController(nibName: "PitchDetailViewController", bundle: nil)
         let pitch = Pitch.listPitchByDistrict[indexPath.row]
         detailViewController.pitchName = pitch.name!
-        detailViewController.pitchAddress = pitch.location!
+        detailViewController.pitchAddress = (pitch.location?.address)!
         detailViewController.pitchPhone = pitch.phone!
         detailViewController.pitchAvatar = pitch.avatar!
         

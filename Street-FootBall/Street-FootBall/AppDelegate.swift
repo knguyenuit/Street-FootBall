@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
 import GoogleMaps
 import GooglePlaces
 
@@ -16,19 +14,37 @@ import GooglePlaces
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var navigation: UINavigationController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FIRApp.configure()
+
+       
+        GMSServices.provideAPIKey("AIzaSyCaNIA8p6P0fRDHDXP9FGUUX7h8Iwqbayg")
+        GMSPlacesClient.provideAPIKey("AIzaSyCaNIA8p6P0fRDHDXP9FGUUX7h8Iwqbayg")
+        GMSServices.provideAPIKey("AIzaSyCaNIA8p6P0fRDHDXP9FGUUX7h8Iwqbayg")
+        
 //        window = UIWindow(frame: UIScreen.main.bounds)
 //        window?.rootViewController = CreatePitchViewController(nibName: "CreatePitchViewController", bundle: nil)
 //        window?.makeKeyAndVisible()
-//        GMSServices.provideAPIKey("AIzaSyCaNIA8p6P0fRDHDXP9FGUUX7h8Iwqbayg")
-//        GMSPlacesClient.provideAPIKey("AIzaSyCaNIA8p6P0fRDHDXP9FGUUX7h8Iwqbayg")
-//        GMSServices.provideAPIKey("AIzaSyCaNIA8p6P0fRDHDXP9FGUUX7h8Iwqbayg")
+        
+        let vc = InitViewController(nibName: "InitViewController", bundle: nil)
+        navigation = UINavigationController(rootViewController: vc)
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = navigation
+        window?.makeKeyAndVisible()
+        NotificationCenter.default.addObserver(self, selector:  #selector(logout), name: NSNotification.Name(rawValue: "Logout"), object: nil)
+        
         
         return true
+    }
+    
+    func logout() {
+        print("logout")
+        let vc = InitViewController(nibName: "InitViewController", bundle: nil)
+        navigation = UINavigationController(rootViewController: vc)
+        window?.rootViewController = navigation
+        GlobalVariable.pitchOwnerID = 0
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

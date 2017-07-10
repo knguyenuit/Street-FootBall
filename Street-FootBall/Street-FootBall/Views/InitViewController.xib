@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InitViewController" customModule="Street_FootBall" customModuleProvider="target">
+            <connections>
+                <outlet property="btnPitchOwner" destination="r5a-NP-sbQ" id="eLZ-tL-75A"/>
+                <outlet property="btnPlayer" destination="E8F-n2-YYP" id="CCE-lN-lf1"/>
+                <outlet property="view" destination="CVE-ar-r30" id="Hwi-6G-tNz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="CVE-ar-r30">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="old-trafford-wallpaper-2012-2013-matchday" translatesAutoresizingMaskIntoConstraints="NO" id="tep-bA-NA0">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" red="0.47579061989999999" green="0.84007519480000004" blue="0.97743874789999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eb0-1b-pGP" userLabel="vContent">
+                    <rect key="frame" x="8" y="208" width="359" height="459"/>
+                    <subviews>
+                        <button opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8F-n2-YYP">
+                            <rect key="frame" x="72" y="10" width="216" height="199.5"/>
+                            <color key="backgroundColor" red="0.30411589150000001" green="0.67296129469999999" blue="0.62724971770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="33"/>
+                            <state key="normal" title="Chủ Sân">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnShowPitchOwnerLogin:" destination="-1" eventType="touchUpInside" id="nGw-bA-h0n"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" alpha="0.85000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5a-NP-sbQ">
+                            <rect key="frame" x="72" y="249.5" width="216" height="199.5"/>
+                            <color key="backgroundColor" red="0.30411589150000001" green="0.67296129469999999" blue="0.62724971770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="33"/>
+                            <state key="normal" title="Cầu Thủ">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnPlayerClick:" destination="-1" eventType="touchUpInside" id="Obp-kL-3tB"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="r5a-NP-sbQ" firstAttribute="centerX" secondItem="Eb0-1b-pGP" secondAttribute="centerX" id="0M8-OE-Hcv"/>
+                        <constraint firstAttribute="bottom" secondItem="r5a-NP-sbQ" secondAttribute="bottom" constant="10" id="dly-yH-hWH"/>
+                        <constraint firstItem="E8F-n2-YYP" firstAttribute="top" secondItem="Eb0-1b-pGP" secondAttribute="top" constant="10" id="fQu-l9-BEx"/>
+                        <constraint firstItem="r5a-NP-sbQ" firstAttribute="width" secondItem="E8F-n2-YYP" secondAttribute="width" id="hg0-L1-Rt5"/>
+                        <constraint firstItem="E8F-n2-YYP" firstAttribute="width" secondItem="Eb0-1b-pGP" secondAttribute="width" multiplier="3/5" id="ojX-LW-dMm"/>
+                        <constraint firstItem="E8F-n2-YYP" firstAttribute="centerX" secondItem="Eb0-1b-pGP" secondAttribute="centerX" id="tc0-vV-PBG"/>
+                        <constraint firstItem="E8F-n2-YYP" firstAttribute="height" secondItem="r5a-NP-sbQ" secondAttribute="height" id="xD2-hd-PSU"/>
+                        <constraint firstItem="r5a-NP-sbQ" firstAttribute="top" secondItem="E8F-n2-YYP" secondAttribute="bottom" constant="40" id="xMy-2D-rFe"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vPU-tS-xru" userLabel="vHeader">
+                    <rect key="frame" x="68" y="80" width="240" height="128"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bạn là !!?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdD-FO-Itf">
+                            <rect key="frame" x="4" y="21" width="232" height="85"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="232" id="hCN-iL-gb7"/>
+                                <constraint firstAttribute="height" constant="85" id="lmF-Ql-JI9"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="30"/>
+                            <color key="textColor" red="1" green="0.5548266369" blue="0.095578917390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="8ny-u5-ZRh"/>
+                        <constraint firstItem="RdD-FO-Itf" firstAttribute="centerX" secondItem="vPU-tS-xru" secondAttribute="centerX" id="JO3-Vb-dog"/>
+                        <constraint firstItem="RdD-FO-Itf" firstAttribute="centerY" secondItem="vPU-tS-xru" secondAttribute="centerY" id="UgH-MK-3B5"/>
+                        <constraint firstAttribute="width" constant="240" id="bTF-K3-cr1"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.30411589150000001" green="0.67296129469999999" blue="0.62724971770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Eb0-1b-pGP" secondAttribute="bottom" id="7yq-Rl-RLE"/>
+                <constraint firstItem="tep-bA-NA0" firstAttribute="top" secondItem="CVE-ar-r30" secondAttribute="top" id="9Ce-Lq-RGM"/>
+                <constraint firstItem="Eb0-1b-pGP" firstAttribute="top" secondItem="vPU-tS-xru" secondAttribute="bottom" id="9EO-GS-2JF"/>
+                <constraint firstItem="tep-bA-NA0" firstAttribute="leading" secondItem="CVE-ar-r30" secondAttribute="leading" id="Uig-Ut-Je8"/>
+                <constraint firstAttribute="trailing" secondItem="tep-bA-NA0" secondAttribute="trailing" id="X08-d9-Nab"/>
+                <constraint firstAttribute="trailingMargin" secondItem="Eb0-1b-pGP" secondAttribute="trailing" id="Y4e-He-ZbR"/>
+                <constraint firstItem="vPU-tS-xru" firstAttribute="centerX" secondItem="CVE-ar-r30" secondAttribute="centerX" id="b46-GU-JAM"/>
+                <constraint firstAttribute="bottom" secondItem="tep-bA-NA0" secondAttribute="bottom" id="ejk-wt-LaZ"/>
+                <constraint firstItem="vPU-tS-xru" firstAttribute="top" secondItem="CVE-ar-r30" secondAttribute="top" constant="80" id="tEB-p6-fX2"/>
+                <constraint firstItem="Eb0-1b-pGP" firstAttribute="leading" secondItem="CVE-ar-r30" secondAttribute="leadingMargin" id="uwz-wt-DDY"/>
+            </constraints>
+            <point key="canvasLocation" x="35.5" y="76.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="old-trafford-wallpaper-2012-2013-matchday" width="902" height="1600"/>
+    </resources>
+</document>

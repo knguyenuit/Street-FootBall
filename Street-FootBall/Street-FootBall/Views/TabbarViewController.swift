@@ -15,21 +15,24 @@ class TabbarViewController: UIViewController, UITabBarControllerDelegate {
     var listVCNavigation = [UIViewController]()
     var listTabbarItem = [UITabBarItem]()
     var tbbar:UITabBarController = UITabBarController()
-    var navigation:UINavigationController?
+    var navigationListPitch: UINavigationController?
+    var navigationListPitchByDistrict: UINavigationController?
     
        override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: false)
         
         self.tabBarController?.delegate = self
         
-        let vcListPitch = ListPitchViewController(nibName: "ListPitchViewController", bundle: nil)
+        let vcListPitch = ListPitchMapViewController(nibName: "ListPitchMapViewController", bundle: nil)
         vcListPitch.tabBarItem = UITabBarItem(title: "List Pitch", image: #imageLiteral(resourceName: "icon_Pitch"), tag: 0)
         let vcSearchPitch = SearchPitchViewController(nibName: "SearchPitchViewController", bundle: nil)
-        vcSearchPitch.tabBarItem = UITabBarItem(title: "Pitch Detail", image: #imageLiteral(resourceName: "icon_Location"), tag: 1)
+        vcSearchPitch.tabBarItem = UITabBarItem(title: "Search Pitch", image: #imageLiteral(resourceName: "icon_Location"), tag: 1)
         
-        navigation = UINavigationController(rootViewController: vcListPitch)
-        listViewController.append(navigation!)
-        listViewController.append(vcSearchPitch)
+        navigationListPitch = UINavigationController(rootViewController: vcListPitch)
+        navigationListPitchByDistrict = UINavigationController(rootViewController: vcSearchPitch)
+        listViewController.append(navigationListPitch!)
+        listViewController.append(navigationListPitchByDistrict!)
         
         tbbar.setViewControllers(listViewController, animated: true)
         
@@ -37,7 +40,8 @@ class TabbarViewController: UIViewController, UITabBarControllerDelegate {
         tbbar.view.frame = view.bounds
         //navigation.view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         //navigation.view.frame = view.bounds
-        view.addSubview(tbbar.view)
+        view.insertSubview(tbbar.view, at: 0)
+//        view.addSubview(tbbar.view)
         
     }
 
@@ -47,6 +51,7 @@ class TabbarViewController: UIViewController, UITabBarControllerDelegate {
     }
     
  
+    
     
     
 

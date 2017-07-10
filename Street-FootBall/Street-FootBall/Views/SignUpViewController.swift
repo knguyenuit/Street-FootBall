@@ -7,10 +7,7 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
+
 
 class SignUpViewController: UIViewController {
 
@@ -87,18 +84,18 @@ class SignUpViewController: UIViewController {
     }
     
     fileprivate func registerUserIntoDatabaseWithUID(_ uid: String, values: [String: AnyObject]) {
-        let ref = FIRDatabase.database().reference()
-        let usersReference = ref.child("users").child(uid)
-        
-        usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-            
-            if let err = err {
-                print(err)
-                return
-            }
-            
-            self.dismiss(animated: true, completion: nil)
-        })
+//        let ref = FIRDatabase.database().reference()
+//        let usersReference = ref.child("users").child(uid)
+//        
+//        usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+//            
+//            if let err = err {
+//                print(err)
+//                return
+//            }
+//            
+//            self.dismiss(animated: true, completion: nil)
+//        })
     }
     
     @IBAction func btnPickUserPicture(_ sender: Any) {

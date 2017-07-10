@@ -196,6 +196,10 @@ class Location: NSObject, Mappable {
     public var lng : Double?
     public var lat: Double?
     
+    init(lat: Double, lng: Double) {
+        self.lat = lat
+        self.lng = lng
+    }
     
     required init?(map: Map) {
         

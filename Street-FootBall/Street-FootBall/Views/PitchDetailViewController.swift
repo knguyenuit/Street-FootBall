@@ -20,6 +20,8 @@ class PitchDetailViewController: UIViewController {
     var pitchName = ""
     var pitchAddress = ""
     var pitchPhone = ""
+    var lat = 0.0
+    var lng = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,8 @@ class PitchDetailViewController: UIViewController {
     @IBAction func btnPitchAddressClick(_ sender: Any) {
         let vc = PitchMapViewController(nibName: "PitchMapViewController", bundle: nil)
         vc.location = (btnPitchAddress.titleLabel?.text!)!
+        vc.lat = self.lat
+        vc.lng = self.lng
         navigationController?.pushViewController(vc, animated: true)
     }
     

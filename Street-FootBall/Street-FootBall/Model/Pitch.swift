@@ -14,7 +14,7 @@ class Pitch : NSObject, Mappable {
     var name : String?
     var phone : String?
     var avatar : String?
-    var location: String?
+    var location: PitchLocation?
     
     var pitchName = ""
     var pitchLocation = ""
@@ -42,3 +42,43 @@ class Pitch : NSObject, Mappable {
     
     
 }
+
+class PitchLocation : NSObject, Mappable {
+    
+    var address = ""
+    var geoLocation: GeoLocation?
+    
+    override init() {
+        super.init()
+    }
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        address <- map["address"]
+        geoLocation <- map["geoLocation"]
+    }
+    
+    
+}
+
+class GeoLocation: NSObject, Mappable {
+    
+    public var lng : Double?
+    public var lat: Double?
+    
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        lat <- map["lat"]
+        lng <- map["lang"]
+        
+    }
+    
+}
+
+

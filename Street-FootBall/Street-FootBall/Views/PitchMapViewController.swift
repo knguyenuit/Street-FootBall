@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import GooglePlaces
+import CoreLocation
 
 
 class PitchMapViewController: UIViewController, CLLocationManagerDelegate  {
@@ -19,15 +20,16 @@ class PitchMapViewController: UIViewController, CLLocationManagerDelegate  {
     @IBOutlet weak var vMap: UIView!
     var location = ""
     let locationManager = CLLocationManager()
-    var latitude = 0.0
-    var longitude = 0.0
+    var lat = 0.0
+    var lng = 0.0
     var coordinate = CGPoint(x: 0, y: 0)
     var mapView: GMSMapView!
     var myLocation:CLLocationCoordinate2D?
     var placesClient: GMSPlacesClient!
+    var geocoder = CLGeocoder()
     
     override func viewDidLoad() {
-        
+        load()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,22 +40,34 @@ class PitchMapViewController: UIViewController, CLLocationManagerDelegate  {
         super.loadView()
         mapView = GMSMapView(frame: view.bounds)
         vMap.addSubview(mapView)
-        Net.shared.getCoordinateLocation(location: location) { (lat, long) in
-            print("latitude: " + "\(lat)")
-            print("long: " + "\(long)")
-            let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            marker.title = "Sydney"
-            marker.snippet = "Australia"
-            marker.map = self.mapView
-            self.mapView.camera = GMSCameraPosition.camera(withLatitude: lat, longitude: long, zoom: 15)
-        }
+        let marker1 = GMSMarker()
+        marker1.position = CLLocationCoordinate2D(latitude: lat, longitude: lng)
+        marker1.title = "\((location))"
+        marker1.snippet = "Viet Nam"
+        marker1.map = self.mapView
+        self.mapView.camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 15)
+        
+//        Net.shared.getCoordinateLocation(location: location) { (lat, long) in
+//            print("latitude: " + "\(lat)")
+//            print("long: " + "\(long)")
+//            
+//            
+//            
+//            let marker2 = GMSMarker()
+//            marker2.position = CLLocationCoordinate2D(latitude: 10.8711373
+//, longitude: 106.7962683)
+//            marker2.title = "Sydney"
+//            marker2.snippet = "Australia"
+//            marker2.map = self.mapView
+//            
+//            
+//        }
     }
     
-    func convertData(lat: Double, long: Double){
-        self.latitude = lat
-        self.longitude = long
-    }
+//    func convertData(lat: Double, long: Double){
+//        self.latitude = lat
+//        self.longitude = long
+//    }
     
     func load() {
         super.viewDidLoad()
@@ -65,6 +79,25 @@ class PitchMapViewController: UIViewController, CLLocationManagerDelegate  {
             locationManager.startUpdatingLocation()
         }
         placesClient = GMSPlacesClient.shared()
+        
+        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let placeLikelihoodList = placeLikelihoodList {
+                for likelihood in placeLikelihoodList.likelihoods {
+                    let place = likelihood.place
+                    print("Current Place name \(place.name) at likelihood \(likelihood.likelihood)")
+                    print("Current Place address \(place.formattedAddress)")
+                    print("Current Place attributions \(place.attributions)")
+                    print("Current PlaceID \(place.placeID)")
+                    print(place.coordinate.latitude)
+                    print(place.coordinate.longitude)
+                }
+            }
+        })
     }
     
     @IBAction func btnBackClick(_ sender: Any) {

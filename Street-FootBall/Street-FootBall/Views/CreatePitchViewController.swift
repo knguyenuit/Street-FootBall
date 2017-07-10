@@ -24,6 +24,8 @@ class CreatePitchViewController: UIViewController {
     
     var pitchOwnerID = 0
     var districtID = 0
+    var locationLat = 0.0
+    var locationLng = 0.0
     let pickerData = [
         ["Thủ Đức","Quận 9","Quận 1","Quận 2","Quận 3", "Quận 4","Quận 5","Quận 6","Quận 7", "Quận 8","Tân Bình","Quận 10","Quận 11","Quận 12", "Bình Thạnh","Gò Vấp", "Tân Phú", "Bình Tân"]
     ]
@@ -35,6 +37,9 @@ class CreatePitchViewController: UIViewController {
         pkDistrict.isHidden = true
         self.hideKeyboardWhenTappedAround()
         print(pitchOwnerID)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,15 +48,20 @@ class CreatePitchViewController: UIViewController {
     }
     
     @IBAction func btnAppyClick(_ sender: Any) {
+        
         uploadWithAlamofire()
     }
 
     @IBAction func btnCancelClick(_ sender: Any) {
-        
+        print((self.btnPitchDistrict.titleLabel?.text)!)
     }
     
     @IBAction func btnChooseDistrictClick(_ sender: Any) {
         pkDistrict.isHidden = false
+    }
+    
+    @IBAction func btnBackClick(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     func createPitch(){
@@ -71,44 +81,66 @@ class CreatePitchViewController: UIViewController {
     
     // import Alamofire
     func uploadWithAlamofire() {
-        let activityData = ActivityData()
-        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        let image = ivPitchAvatar.image
         
-        print("Pitch Owner ID: \(self.pitchOwnerID)")
-        // define parameters
-        let parameters = [
-            "user_id" : "\(String(GlobalVariable.pitchOwnerID))",
-            "pitch_name"  : "\(tfPitchName.text!)",
-            "location_district": "\(districtID)",
-            "pitch_phone" : "\(tfPitchPhone.text!)",
-            "location_address"    : "\(tfPitchAddress.text!)"
-        ]
         
-        print(parameters)
-        
-        Alamofire.upload(multipartFormData: { multipartFormData in
-            if let imageData = UIImageJPEGRepresentation(image!, 1) {
-                multipartFormData.append(imageData, withName: "avatar", fileName: "\(self.tfPitchName.text)", mimeType: "image/png")
-            }
-            
-            for (key, value) in parameters {
-                multipartFormData.append((value.data(using: .utf8))!, withName: key)
-            }}, to: "http://fooco.esy.es/public/api/pitch/create-pitch.php?type=json", method: .post, headers: ["Authorization": "auth_token"],
-                encodingCompletion: { encodingResult in
-                    NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
-                    switch encodingResult {
-                    case .success(let upload, _, _):
-                        upload.response { [weak self] response in
-                            guard self != nil else {
-                                return
-                            }
-                            debugPrint(response)
+        Net.shared.getCoordinate(location: "\(self.tfPitchAddress.text!), \((self.btnPitchDistrict.titleLabel?.text)!)").continueWith { (task) -> Void in
+            if task.error != nil {
+                //
+            } else {
+                if let coordinate = task.result {
+                    let lat = ((coordinate as! Location).lat)!
+                    let lng = ((coordinate as! Location).lng)!
+                    print(lat)
+                    print(lng)
+                    let activityData = ActivityData()
+                    NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
+                    let image = self.ivPitchAvatar.image
+                    
+                    print("Pitch Owner ID: \(GlobalVariable.pitchOwnerID)")
+                    // define parameters
+                    let parameters = [
+                        "user_id" : "\(String(GlobalVariable.pitchOwnerID))",
+                        "pitch_name"  : "\(self.tfPitchName.text!)",
+                        "location_district": "\(self.districtID)",
+                        "pitch_phone" : "\(self.tfPitchPhone.text!)",
+                        "location_address"    : "\(self.tfPitchAddress.text!)",
+                        "location_lat": "\(lat)",
+                        "location_lng": "\(lng)"
+                    ]
+                    
+                    
+                    
+                    Alamofire.upload(multipartFormData: { multipartFormData in
+                        if let imageData = UIImageJPEGRepresentation(image!, 1) {
+                            multipartFormData.append(imageData, withName: "avatar", fileName: "\(self.tfPitchName.text)", mimeType: "image/png")
                         }
-                    case .failure(let encodingError):
-                        print("error:\(encodingError)")
-                    }
-        })
+                        
+                        for (key, value) in parameters {
+                            multipartFormData.append((value.data(using: .utf8))!, withName: key)
+                        }}, to: "http://fooco.esy.es/public/api/pitch/create-pitch.php?type=json", method: .post, headers: ["Authorization": "auth_token"],
+                            encodingCompletion: { encodingResult in
+                                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+                                switch encodingResult {
+                                case .success(let upload, _, _):
+                                    upload.response { [weak self] response in
+                                        guard self != nil else {
+                                            return
+                                        }
+                                        debugPrint(response)
+                                    }
+                                case .failure(let encodingError):
+                                    print("error:\(encodingError)")
+                                }
+                    })
+                    
+                }
+            }
+        }
+        
+        
+        
+
+        
     }
     
     func showArlert() {
@@ -146,6 +178,7 @@ extension CreatePitchViewController: UIImagePickerControllerDelegate,UINavigatio
         btnPitchDistrict.setTitle(location, for: .normal)
         pkDistrict.isHidden = true
         districtID = pkDistrict.selectedRow(inComponent: 0) + 2
+        
     }
     
     @IBAction func btnChooseImageClick(_ sender: Any) {
@@ -158,7 +191,7 @@ extension CreatePitchViewController: UIImagePickerControllerDelegate,UINavigatio
         }
     }
     
-    private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             ivPitchAvatar.contentMode = .scaleToFill
             ivPitchAvatar.image = pickedImage

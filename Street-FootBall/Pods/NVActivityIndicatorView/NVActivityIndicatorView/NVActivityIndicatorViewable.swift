@@ -81,4 +81,38 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
     public final func stopAnimating() {
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
     }
+    
+    public final func startAnimating(
+        _ size: CGSize? = nil,
+        message: String? = nil,
+        messageFont: UIFont? = nil,
+        type: NVActivityIndicatorType? = nil,
+        color: UIColor? = nil,
+        padding: CGFloat? = nil,
+        displayTimeThreshold: Int? = nil,
+        minimumDisplayTime: Int? = nil,
+        backgroundColor: UIColor? = nil,
+        textColor: UIColor? = nil,
+        view: UIView) {
+        let activityData = ActivityData(size: size,
+                                        message: message,
+                                        messageFont: messageFont,
+                                        type: type,
+                                        color: color,
+                                        padding: padding,
+                                        displayTimeThreshold: displayTimeThreshold,
+                                        minimumDisplayTime: minimumDisplayTime,
+                                        backgroundColor: backgroundColor,
+                                        textColor: textColor)
+        
+        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, view: view)
+    }
+    
+    /**
+     Remove UI blocker.
+     */
+    public final func stopAnimating(view: UIView) {
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(view: view)
+    }
+
 }

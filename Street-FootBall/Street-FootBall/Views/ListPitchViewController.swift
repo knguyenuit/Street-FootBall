@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
+import Kingfisher
 
-class ListPitchViewController: UIViewController {
+class ListPitchViewController: UIViewController, NVActivityIndicatorViewable {
 
     @IBOutlet weak var tblListPitch: UITableView!
     var pitchOwnerID = 0
@@ -19,21 +21,59 @@ class ListPitchViewController: UIViewController {
         tblListPitch.delegate = self
         tblListPitch.dataSource = self
         
+        //an hien cai quay quay
         automaticallyAdjustsScrollViewInsets = false
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if pitchOwnerID == 0 {
-            Net.shared.getPitch(success: refreshPitch)
-        } else {
-            Net.shared.getPitchOwner(id: GlobalVariable.pitchOwnerID, success: refreshPitch)
+        super.viewDidAppear(animated)
+        if Pitch.listPitch.isEmpty{
+            showActivity()
+            
+            if pitchOwnerID == 0 {
+                DispatchQueue.global(qos: .default).async {
+                    Net.shared.getPitch().continueWith { (task) -> Void in
+                        self.stopAnimating(view: self.view)
+                        if task.error != nil {
+                            //
+                        } else {
+                            if let result = task.result as? [Pitch] {
+                                //khi thanh cong gio cast ve va reload lai data cua table view
+                                result.forEach({ (pitch) in
+                                    Pitch.listPitch.append(pitch)
+                                })
+                                self.tblListPitch.reloadData()
+                            }
+                        }
+                    }
+
+                }
+                
+            } else {
+            Net.shared.getPitchOwner(id: pitchOwnerID).continueWith { (task) -> Void in
+                self.stopAnimating(view: self.view)
+                if task.error != nil {
+                    //
+                } else {
+                    if let result = task.result as? [Pitch] {
+                        //khi thanh cong gio cast ve va reload lai data cua table view
+                        result.forEach({ (pitch) in
+                            Pitch.listPitch.append(pitch)
+                        })
+                        self.tblListPitch.reloadData()
+                    }
+                }
+            }
+        }
         }
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        Pitch.listPitch.removeAll()
+        //Pitch.listPitch.removeAll()
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,6 +86,10 @@ class ListPitchViewController: UIViewController {
         tblListPitch.reloadData()
     }
     
+    func showActivity() {
+        
+        self.startAnimating(view: self.view)
+    }
     
 
 }
@@ -69,11 +113,11 @@ extension ListPitchViewController: UITableViewDelegate, UITableViewDataSource{
         let cell = tblListPitch.dequeueReusableCell(withIdentifier: "ListPitchCell") as! ListPitchTableViewCell
         cell.lbPitchName.text = Pitch.listPitch[indexPath.row].name
         cell.lbPitchPhoneNumber.text = Pitch.listPitch[indexPath.row].phone
-        cell.lbPitchAddress.text = Pitch.listPitch[indexPath.row].location
+        cell.lbPitchAddress.text = Pitch.listPitch[indexPath.row].location?.address
         cell.lbPitchCount.text = "5 Sân"
-        let imageUrl = NSURL(string: Pitch.listPitch[indexPath.row].avatar!)
-        let data = NSData(contentsOf:imageUrl! as URL)
-        cell.ivPitchAvatar.image = UIImage(data: data! as Data)
+
+        let url = URL(string: Pitch.listPitch[indexPath.row].avatar!)
+        cell.ivPitchAvatar.kf.setImage(with: url)
         
         cell.contentView.backgroundColor = UIColor.clear
         let whiteRoundedView : UIView = UIView(frame: CGRect(x: 10, y: 0, width: self.view.frame.size.width - 20, height: 85))
@@ -92,9 +136,11 @@ extension ListPitchViewController: UITableViewDelegate, UITableViewDataSource{
         let detailViewController = PitchDetailViewController(nibName: "PitchDetailViewController", bundle: nil)
         let pitch = Pitch.listPitch[indexPath.row]
         detailViewController.pitchName = pitch.name!
-        detailViewController.pitchAddress = pitch.location!
+        detailViewController.pitchAddress = (pitch.location?.address)!
         detailViewController.pitchPhone = pitch.phone!
         detailViewController.pitchAvatar = pitch.avatar!
+        detailViewController.lat = (pitch.location?.geoLocation?.lat)!
+        detailViewController.lng = (pitch.location?.geoLocation?.lng)!
         
         tblListPitch.deselectRow(at: indexPath, animated: true)
 

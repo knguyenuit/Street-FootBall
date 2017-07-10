@@ -89,14 +89,14 @@
                         <color key="backgroundColor" red="0.30411589150000001" green="0.67296129469999999" blue="0.62724971770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="l27-eD-oJs" firstAttribute="centerX" secondItem="kFq-Tj-bEs" secondAttribute="centerX" id="8aA-wh-TLG"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mkm-3z-uPP" secondAttribute="bottom" id="ElV-vK-HEH"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="w7V-xX-HOy" secondAttribute="bottom" id="Hsm-bl-Bjd"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="w7V-xX-HOy" secondAttribute="bottom" id="Itu-AN-2dJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="w7V-xX-HOy" secondAttribute="trailing" id="M2j-d4-rW0"/>
                             <constraint firstItem="mkm-3z-uPP" firstAttribute="leading" secondItem="kFq-Tj-bEs" secondAttribute="leading" id="NmC-ol-KJa"/>
                             <constraint firstAttribute="trailing" secondItem="mkm-3z-uPP" secondAttribute="trailing" id="SUo-bi-lDI"/>
-                            <constraint firstItem="l27-eD-oJs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="Sp8-jO-P0x"/>
                             <constraint firstItem="w7V-xX-HOy" firstAttribute="leading" secondItem="kFq-Tj-bEs" secondAttribute="leadingMargin" id="UqY-he-oFr"/>
+                            <constraint firstItem="l27-eD-oJs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="ewJ-gh-JFU"/>
                             <constraint firstItem="w7V-xX-HOy" firstAttribute="top" secondItem="l27-eD-oJs" secondAttribute="bottom" id="fw9-KX-Ggi"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mkm-3z-uPP" secondAttribute="bottom" id="gxB-a2-fKJ"/>
                             <constraint firstItem="mkm-3z-uPP" firstAttribute="top" secondItem="kFq-Tj-bEs" secondAttribute="top" id="oWv-wk-41l"/>
                         </constraints>
                     </view>
