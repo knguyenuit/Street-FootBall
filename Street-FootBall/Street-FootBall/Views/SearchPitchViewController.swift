@@ -126,6 +126,7 @@ extension SearchPitchViewController: UITableViewDelegate, UITableViewDataSource 
         detailViewController.pitchAddress = (pitch.location?.address)!
         detailViewController.pitchPhone = pitch.phone!
         detailViewController.pitchAvatar = pitch.avatar!
+        detailViewController.priceBoard = pitch.timeSlot!
         
         tblListPitch.deselectRow(at: indexPath, animated: true)
         

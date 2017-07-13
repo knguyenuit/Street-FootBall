@@ -18,6 +18,9 @@
 		8B151AB31F025B62007DAF1C /* TabbarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B151AB11F025B62007DAF1C /* TabbarViewController.xib */; };
 		8B151AB61F025B74007DAF1C /* PitchOwnerLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B151AB41F025B74007DAF1C /* PitchOwnerLoginViewController.swift */; };
 		8B151AB71F025B74007DAF1C /* PitchOwnerLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B151AB51F025B74007DAF1C /* PitchOwnerLoginViewController.xib */; };
+		8B1743851F147479009DF4A5 /* Maker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1743841F147479009DF4A5 /* Maker.swift */; };
+		8B1743891F1487A4009DF4A5 /* PitchInfoMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1743871F1487A4009DF4A5 /* PitchInfoMakerViewController.swift */; };
+		8B17438A1F1487A4009DF4A5 /* PitchInfoMakerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B1743881F1487A4009DF4A5 /* PitchInfoMakerViewController.xib */; };
 		8B23BE041F00A74F00B65659 /* APIPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B23BE031F00A74F00B65659 /* APIPagination.swift */; };
 		8B23BE061F00A76200B65659 /* BaseAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B23BE051F00A76200B65659 /* BaseAPIError.swift */; };
 		8B23BE081F00A78400B65659 /* BaseAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B23BE071F00A78400B65659 /* BaseAPIResponse.swift */; };
@@ -30,6 +33,8 @@
 		8B262BB31F01FBF50092981C /* PitchMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B262BB11F01FBF50092981C /* PitchMapViewController.xib */; };
 		8B262BC31F0259670092981C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B262BC11F0259670092981C /* SignUpViewController.swift */; };
 		8B262BC41F0259670092981C /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B262BC21F0259670092981C /* SignUpViewController.xib */; };
+		8B6C89B91F133A1D0023B77B /* UserOderPitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C89B71F133A1D0023B77B /* UserOderPitchViewController.swift */; };
+		8B6C89BA1F133A1D0023B77B /* UserOderPitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B6C89B81F133A1D0023B77B /* UserOderPitchViewController.xib */; };
 		8B8F45AC1F04B50B001877F6 /* PitchOwnerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F45AA1F04B50B001877F6 /* PitchOwnerProfileViewController.swift */; };
 		8B8F45AD1F04B50B001877F6 /* PitchOwnerProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B8F45AB1F04B50B001877F6 /* PitchOwnerProfileViewController.xib */; };
 		8B8F45AF1F04DA57001877F6 /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8F45AE1F04DA57001877F6 /* GlobalVariable.swift */; };
@@ -65,6 +70,9 @@
 		8B151AB11F025B62007DAF1C /* TabbarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TabbarViewController.xib; path = Views/TabbarViewController.xib; sourceTree = "<group>"; };
 		8B151AB41F025B74007DAF1C /* PitchOwnerLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PitchOwnerLoginViewController.swift; path = Views/PitchOwnerLoginViewController.swift; sourceTree = "<group>"; };
 		8B151AB51F025B74007DAF1C /* PitchOwnerLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PitchOwnerLoginViewController.xib; path = Views/PitchOwnerLoginViewController.xib; sourceTree = "<group>"; };
+		8B1743841F147479009DF4A5 /* Maker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Maker.swift; path = Model/Maker.swift; sourceTree = "<group>"; };
+		8B1743871F1487A4009DF4A5 /* PitchInfoMakerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PitchInfoMakerViewController.swift; path = Views/PitchInfoMakerViewController.swift; sourceTree = "<group>"; };
+		8B1743881F1487A4009DF4A5 /* PitchInfoMakerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PitchInfoMakerViewController.xib; path = Views/PitchInfoMakerViewController.xib; sourceTree = "<group>"; };
 		8B23BE031F00A74F00B65659 /* APIPagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIPagination.swift; path = Net/APIPagination.swift; sourceTree = "<group>"; };
 		8B23BE051F00A76200B65659 /* BaseAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseAPIError.swift; path = Net/BaseAPIError.swift; sourceTree = "<group>"; };
 		8B23BE071F00A78400B65659 /* BaseAPIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseAPIResponse.swift; path = Net/BaseAPIResponse.swift; sourceTree = "<group>"; };
@@ -77,6 +85,8 @@
 		8B262BB11F01FBF50092981C /* PitchMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PitchMapViewController.xib; path = Views/PitchMapViewController.xib; sourceTree = "<group>"; };
 		8B262BC11F0259670092981C /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = Views/SignUpViewController.swift; sourceTree = "<group>"; };
 		8B262BC21F0259670092981C /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SignUpViewController.xib; path = Views/SignUpViewController.xib; sourceTree = "<group>"; };
+		8B6C89B71F133A1D0023B77B /* UserOderPitchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserOderPitchViewController.swift; path = Views/UserOderPitchViewController.swift; sourceTree = "<group>"; };
+		8B6C89B81F133A1D0023B77B /* UserOderPitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserOderPitchViewController.xib; path = Views/UserOderPitchViewController.xib; sourceTree = "<group>"; };
 		8B8F45AA1F04B50B001877F6 /* PitchOwnerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PitchOwnerProfileViewController.swift; path = Views/PitchOwnerProfileViewController.swift; sourceTree = "<group>"; };
 		8B8F45AB1F04B50B001877F6 /* PitchOwnerProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PitchOwnerProfileViewController.xib; path = Views/PitchOwnerProfileViewController.xib; sourceTree = "<group>"; };
 		8B8F45AE1F04DA57001877F6 /* GlobalVariable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalVariable.swift; path = Model/GlobalVariable.swift; sourceTree = "<group>"; };
@@ -110,11 +120,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8B0089FC1F0E34FF001C38FF /* New Group */ = {
+		8B0089FC1F0E34FF001C38FF /* Order Pitch */ = {
 			isa = PBXGroup;
 			children = (
+				8B6C89B71F133A1D0023B77B /* UserOderPitchViewController.swift */,
+				8B6C89B81F133A1D0023B77B /* UserOderPitchViewController.xib */,
 			);
-			name = "New Group";
+			name = "Order Pitch";
 			sourceTree = "<group>";
 		};
 		8B00BCFC1EF77FAB000A391A = {
@@ -151,6 +163,15 @@
 				8B00BD141EF77FAB000A391A /* Info.plist */,
 			);
 			path = "Street-FootBall";
+			sourceTree = "<group>";
+		};
+		8B1743861F148786009DF4A5 /* Pitch Info Maker */ = {
+			isa = PBXGroup;
+			children = (
+				8B1743871F1487A4009DF4A5 /* PitchInfoMakerViewController.swift */,
+				8B1743881F1487A4009DF4A5 /* PitchInfoMakerViewController.xib */,
+			);
+			name = "Pitch Info Maker";
 			sourceTree = "<group>";
 		};
 		8B23BE021F00A72500B65659 /* APIreponse */ = {
@@ -190,6 +211,7 @@
 				8BD9CC3F1EFB6C0C00FFC26C /* User.swift */,
 				8B23BE0B1F00A7AF00B65659 /* Pitch.swift */,
 				8B8F45AE1F04DA57001877F6 /* GlobalVariable.swift */,
+				8B1743841F147479009DF4A5 /* Maker.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -262,7 +284,8 @@
 		8BA91A8C1EFA1787009B619F /* Pitch */ = {
 			isa = PBXGroup;
 			children = (
-				8B0089FC1F0E34FF001C38FF /* New Group */,
+				8B1743861F148786009DF4A5 /* Pitch Info Maker */,
+				8B0089FC1F0E34FF001C38FF /* Order Pitch */,
 				8B8F45A91F04B4D2001877F6 /* Pitch Owner */,
 				8BEC587A1F03B6A200A74029 /* Search Pitch */,
 				8BEC58791F03B68C00A74029 /* Create Pitch */,
@@ -400,9 +423,11 @@
 				8BD9CC461EFBC2DA00FFC26C /* GoogleService-Info.plist in Resources */,
 				8B262BC41F0259670092981C /* SignUpViewController.xib in Resources */,
 				8B8F45AD1F04B50B001877F6 /* PitchOwnerProfileViewController.xib in Resources */,
+				8B6C89BA1F133A1D0023B77B /* UserOderPitchViewController.xib in Resources */,
 				8BD9CC441EFBA49400FFC26C /* CreatePitchViewController.xib in Resources */,
 				8B00BD101EF77FAB000A391A /* Assets.xcassets in Resources */,
 				8B00BD0E1EF77FAB000A391A /* Main.storyboard in Resources */,
+				8B17438A1F1487A4009DF4A5 /* PitchInfoMakerViewController.xib in Resources */,
 				8B8F45B81F050940001877F6 /* InitViewController.xib in Resources */,
 				8B151AB31F025B62007DAF1C /* TabbarViewController.xib in Resources */,
 				8BA91A881EFA0819009B619F /* ListPitchTableViewCell.xib in Resources */,
@@ -469,8 +494,10 @@
 			files = (
 				8B00BD0B1EF77FAB000A391A /* ViewController.swift in Sources */,
 				8B23BE061F00A76200B65659 /* BaseAPIError.swift in Sources */,
+				8B1743891F1487A4009DF4A5 /* PitchInfoMakerViewController.swift in Sources */,
 				8BEC587D1F03B6FD00A74029 /* SearchPitchViewController.swift in Sources */,
 				8B262BB21F01FBF50092981C /* PitchMapViewController.swift in Sources */,
+				8B6C89B91F133A1D0023B77B /* UserOderPitchViewController.swift in Sources */,
 				8BA91A7F1EFA0794009B619F /* ListPitchViewController.swift in Sources */,
 				8B23BE111F00BEB000B65659 /* PitchDetailViewController.swift in Sources */,
 				8B8F45AC1F04B50B001877F6 /* PitchOwnerProfileViewController.swift in Sources */,
@@ -488,6 +515,7 @@
 				8BEC58811F03B96600A74029 /* TabbarControllerPitchOwnerViewController.swift in Sources */,
 				8BD9CC431EFBA49400FFC26C /* CreatePitchViewController.swift in Sources */,
 				8B23BE0A1F00A79B00B65659 /* ListPitchReponse.swift in Sources */,
+				8B1743851F147479009DF4A5 /* Maker.swift in Sources */,
 				8B23BE041F00A74F00B65659 /* APIPagination.swift in Sources */,
 				8B8F45AF1F04DA57001877F6 /* GlobalVariable.swift in Sources */,
 			);

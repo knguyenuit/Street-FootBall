@@ -141,6 +141,7 @@ extension ListPitchViewController: UITableViewDelegate, UITableViewDataSource{
         detailViewController.pitchAvatar = pitch.avatar!
         detailViewController.lat = (pitch.location?.geoLocation?.lat)!
         detailViewController.lng = (pitch.location?.geoLocation?.lng)!
+        detailViewController.priceBoard = pitch.timeSlot!
         
         tblListPitch.deselectRow(at: indexPath, animated: true)
 

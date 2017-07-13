@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyCaNIA8p6P0fRDHDXP9FGUUX7h8Iwqbayg")
         
 //        window = UIWindow(frame: UIScreen.main.bounds)
-//        window?.rootViewController = CreatePitchViewController(nibName: "CreatePitchViewController", bundle: nil)
+//        window?.rootViewController = UserOderPitchViewController(nibName: "UserOderPitchViewController", bundle: nil)
 //        window?.makeKeyAndVisible()
         
         let vc = InitViewController(nibName: "InitViewController", bundle: nil)

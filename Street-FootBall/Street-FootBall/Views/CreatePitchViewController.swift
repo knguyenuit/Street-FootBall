@@ -21,11 +21,17 @@ class CreatePitchViewController: UIViewController {
     @IBOutlet weak var pkDistrict: UIPickerView!
     @IBOutlet weak var ivPitchAvatar: UIImageView!
     @IBOutlet weak var btnChooseImage: UIButton!
+    @IBOutlet weak var tfTimeStart: UITextField!
+    @IBOutlet weak var tfTimeEnd: UITextField!
+    @IBOutlet weak var tvPriceBoard: UITextView!
+    @IBOutlet weak var tfPrice: UITextField!
     
     var pitchOwnerID = 0
     var districtID = 0
     var locationLat = 0.0
     var locationLng = 0.0
+    var arrPriceBoard = [""]
+    var index = 1
     let pickerData = [
         ["Thủ Đức","Quận 9","Quận 1","Quận 2","Quận 3", "Quận 4","Quận 5","Quận 6","Quận 7", "Quận 8","Tân Bình","Quận 10","Quận 11","Quận 12", "Bình Thạnh","Gò Vấp", "Tân Phú", "Bình Tân"]
     ]
@@ -64,6 +70,15 @@ class CreatePitchViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func btnAddToPriceBoard(_ sender: Any) {
+        let priceHour = "\(tfTimeStart.text!)h" + " - " + "\(tfTimeEnd.text!)h" + " : " + "\(tfPrice.text!) Đ" + "\n"
+        arrPriceBoard.append(priceHour)
+        tvPriceBoard.text! = "\(tvPriceBoard.text!)" + arrPriceBoard[index]
+        index = index + 1
+        tfTimeStart.text = ""
+        tfTimeEnd.text = ""
+        tfPrice.text = ""
+    }
     func createPitch(){
 //        let param = [
 //            "user_id" : "1",

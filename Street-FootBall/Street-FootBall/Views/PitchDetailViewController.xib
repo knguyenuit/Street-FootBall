@@ -16,6 +16,7 @@
                 <outlet property="ivPitchAvatar" destination="Lhr-Ey-Rlp" id="mj5-ih-8ul"/>
                 <outlet property="lbPitchName" destination="2d1-qt-qwn" id="Y3S-Yy-cqJ"/>
                 <outlet property="lbPitchPhone" destination="BWI-Jr-NbO" id="bPu-CJ-grG"/>
+                <outlet property="tvPriceBoard" destination="ITA-kt-8wM" id="M2D-Y8-afR"/>
                 <outlet property="view" destination="AZw-Qu-6jA" id="FbS-rl-McD"/>
             </connections>
         </placeholder>
@@ -47,10 +48,10 @@
                 <view alpha="0.85000002384185791" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ooi-N5-3hv">
                     <rect key="frame" x="32" y="188" width="256" height="284"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="8h - 15h: 90.000 VNĐ  15h - 17h: 150.000 VNĐ  17h - 19h: 180.000 VNĐ  19h - 24h: 200.000 VNĐ  24h - 8h: Không hoạt động" translatesAutoresizingMaskIntoConstraints="NO" id="ITA-kt-8wM">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ITA-kt-8wM">
                             <rect key="frame" x="26" y="29" width="205" height="227"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                     </subviews>
@@ -112,6 +113,21 @@
                         <action selector="btnPitchAddressClick:" destination="-1" eventType="touchUpInside" id="HiR-cF-Xnh"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wT-5Z-WxG">
+                    <rect key="frame" x="126" y="480" width="69" height="30"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="69" id="Sjh-D8-tes"/>
+                        <constraint firstAttribute="height" constant="30" id="nw2-rY-d7G"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                    <state key="normal" title="Đặt Sân">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="btnOrderPitchClick:" destination="-1" eventType="touchUpInside" id="TAz-HP-HxZ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -122,6 +138,8 @@
                 <constraint firstAttribute="trailing" secondItem="RYU-ZX-uFx" secondAttribute="trailing" id="5Fv-O7-jqm"/>
                 <constraint firstItem="m80-9M-Cbh" firstAttribute="leading" secondItem="Lhr-Ey-Rlp" secondAttribute="trailing" constant="17" id="EVC-KP-CDF"/>
                 <constraint firstItem="bem-te-itK" firstAttribute="bottom" secondItem="RYU-ZX-uFx" secondAttribute="top" id="HYu-aL-xGM"/>
+                <constraint firstItem="3wT-5Z-WxG" firstAttribute="centerX" secondItem="AZw-Qu-6jA" secondAttribute="centerX" id="MWp-7f-btH"/>
+                <constraint firstItem="3wT-5Z-WxG" firstAttribute="top" secondItem="ooi-N5-3hv" secondAttribute="bottom" constant="8" id="MiI-YA-PBm"/>
                 <constraint firstItem="BWI-Jr-NbO" firstAttribute="top" secondItem="gwx-QJ-OFL" secondAttribute="bottom" constant="5" id="Rsv-Vg-0Tz"/>
                 <constraint firstItem="1pR-0W-6qW" firstAttribute="leading" secondItem="Lhr-Ey-Rlp" secondAttribute="trailing" constant="17" id="SKw-Pm-QRV"/>
                 <constraint firstItem="gwx-QJ-OFL" firstAttribute="top" secondItem="2d1-qt-qwn" secondAttribute="bottom" id="W3l-35-5V0"/>

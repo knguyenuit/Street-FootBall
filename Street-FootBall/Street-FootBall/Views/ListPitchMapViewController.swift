@@ -18,6 +18,8 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
     @IBOutlet weak var lable: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var lbMakerLocation: UILabel!
+    
     
     var location = ""
     let locationManager = CLLocationManager()
@@ -40,6 +42,8 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+        //update location to my location
+        
         let location = locations.last
         
         let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 15.0)
@@ -48,47 +52,57 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
         
         self.locationManager.stopUpdatingLocation()
 
-        //Finally stop updating location otherwise it will come again and again in this delegate
+       
     }
     
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        let detailViewController = PitchDetailViewController(nibName: "PitchDetailViewController", bundle: nil)
+        let pitch = marker.userData as! Pitch
+        detailViewController.pitchName = pitch.name!
+        detailViewController.pitchAddress = (pitch.location?.address)!
+        detailViewController.pitchPhone = pitch.phone!
+        detailViewController.pitchAvatar = pitch.avatar!
+        detailViewController.lat = (pitch.location?.geoLocation?.lat)!
+        detailViewController.lng = (pitch.location?.geoLocation?.lng)!
+        detailViewController.priceBoard = pitch.timeSlot!
+        
+        
+        navigationController?.pushViewController(detailViewController, animated: true)
+
+    }
+    
+//    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+////        vPopup.isHidden = false
+////        lbMakerLocation.text = marker.title
+////        vPopup.frame = CGRect(x: 200, y: 200, width: 200, height: 200)
+////        self.view.addSubview(vPopup)
+//        
+//        let detailViewController = PitchDetailViewController(nibName: "PitchDetailViewController", bundle: nil)
+//        let pitch = marker.userData as! Pitch
+//        detailViewController.pitchName = pitch.name!
+//        detailViewController.pitchAddress = (pitch.location?.address)!
+//        detailViewController.pitchPhone = pitch.phone!
+//        detailViewController.pitchAvatar = pitch.avatar!
+//        detailViewController.lat = (pitch.location?.geoLocation?.lat)!
+//        detailViewController.lng = (pitch.location?.geoLocation?.lng)!
+//        
+//        
+//        
+//        navigationController?.pushViewController(detailViewController, animated: true)
+//        
+//
+//        return true
+//    }
 
     
     override func loadView() {
         super.loadView()
-//        self.locationManager.requestAlwaysAuthorization()
-//        self.locationManager.requestWhenInUseAuthorization()
-//        if CLLocationManager.locationServicesEnabled() {
-//            locationManager.delegate = self
-//            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-//            locationManager.startUpdatingLocation()
-//        }
-//        placesClient = GMSPlacesClient.shared()
-//        
-//        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
-//            if let error = error {
-//                print("Pick Place error: \(error.localizedDescription)")
-//                return
-//            }
-//            
-//            if let placeLikelihoodList = placeLikelihoodList {
-//                for likelihood in placeLikelihoodList.likelihoods {
-//                    let place = likelihood.place
-//                    print("Current Place name \(place.name) at likelihood \(likelihood.likelihood)")
-//                    print("Current Place address \(place.formattedAddress)")
-//                    print("Current Place attributions \(place.attributions)")
-//                    print("Current PlaceID \(place.placeID)")
-//                    self.latitude = (place.coordinate.latitude)
-//                    self.longitude = place.coordinate.longitude
-//                }
-//            }
-//        })
-
-        
         mapView = GMSMapView(frame: view.bounds)
         vMap.addSubview(mapView)
         mapView.isMyLocationEnabled = true
         mapView.sizeToFit()
         self.locationManager.startUpdatingLocation()
+        
         
         Net.shared.getPitch().continueWith { (task) -> Void in
             if task.error != nil {
@@ -102,12 +116,14 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
                             let marker = GMSMarker()
                             marker.position = CLLocationCoordinate2D(latitude: (pitch.location?.geoLocation?.lat)!
                                 , longitude: (pitch.location?.geoLocation?.lng)!)
-                            print(pitch.location?.geoLocation!)
                             marker.title = "\((pitch.location?.address)!)"
-                            marker.snippet = "VietNam"
-                            marker.icon = GMSMarker.markerImage(with: .green)
-                            
+                            //marker.snippet = "VietNam"
+                            marker.icon = #imageLiteral(resourceName: "icons8-Stadiumpng")
+                            marker.tracksInfoWindowChanges = true
+                            self.mapView.selectedMarker = marker
                             marker.map = self.mapView
+                            
+                            marker.userData = pitch
                         })
                     }
                     
@@ -121,46 +137,26 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
         self.mapView.camera = GMSCameraPosition.camera(withLatitude: 10.871137, longitude: 106.796268, zoom: 15)
     }
     
-//    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-//        print(marker.title)
-//        return true
-//    }
-    
-    
-    func load() {
-        super.viewDidLoad()
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.requestWhenInUseAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
-        placesClient = GMSPlacesClient.shared()
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         
-        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
-            if let error = error {
-                print("Pick Place error: \(error.localizedDescription)")
-                return
-            }
-            
-            if let placeLikelihoodList = placeLikelihoodList {
-                for likelihood in placeLikelihoodList.likelihoods {
-                    let place = likelihood.place
-                    print("Current Place name \(place.name) at likelihood \(likelihood.likelihood)")
-                    print("Current Place address \(place.formattedAddress)")
-                    print("Current Place attributions \(place.attributions)")
-                    print("Current PlaceID \(place.placeID)")
-                    self.latitude = (place.coordinate.latitude)
-                    self.longitude = place.coordinate.longitude
-                }
-            }
-        })
+        let vc = PitchInfoMakerViewController(nibName: "PitchInfoMakerViewController", bundle: nil)
+        let info = vc.view
+        let pitch = marker.userData as! Pitch
+        vc.name = pitch.name!
+        vc.address = pitch.location?.address
+        vc.avatar = pitch.avatar
+        vc.phone = pitch.phone
+        vc.btnOrderPitch.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+       
+        
+        return info
+        
     }
     
-    func convertData(lat: Double, long: Double){
-        self.latitude = lat
-        self.longitude = long
+
+    
+    func buttonTapped(_ sender: UIButton!) {
+        print("Yeah! Button is tapped!")
     }
     
     
@@ -168,22 +164,6 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
     @IBAction func btnBackClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
-    @IBAction func getCurrentPlace(_ sender: Any){
-        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
-            if let error = error {
-                print("Pick Place error: \(error.localizedDescription)")
-                return
-            }
-            self.nameLabel.text = "No current place"
-            self.addressLabel.text = ""
-            if let placeLikelihoodList = placeLikelihoodList {
-                let place = placeLikelihoodList.likelihoods.first?.place
-                if let place = place {
-                    self.nameLabel.text = place.name
-                    self.addressLabel.text = place.formattedAddress?.components(separatedBy: ", ")
-                        .joined(separator: "\n")
-                }
-            }
-        })
-    }
 }
+
+
