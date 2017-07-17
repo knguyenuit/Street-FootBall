@@ -25,6 +25,7 @@ class Pitch : NSObject, Mappable {
     static var listPitch = [Pitch]()
     static var listPitchOwner = [Pitch]()
     static var listPitchByDistrict = [Pitch]()
+    static var listPitchNearby = [Pitch]()
     
     override init() {
         super.init()

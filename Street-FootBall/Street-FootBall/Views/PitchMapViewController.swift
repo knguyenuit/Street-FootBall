@@ -19,18 +19,19 @@ class PitchMapViewController: UIViewController, CLLocationManagerDelegate  {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var vMap: UIView!
     var location = ""
-    let locationManager = CLLocationManager()
     var lat = 0.0
     var lng = 0.0
     var coordinate = CGPoint(x: 0, y: 0)
     var mapView: GMSMapView!
     var myLocation:CLLocationCoordinate2D?
     var placesClient: GMSPlacesClient!
+    let locationManager = CLLocationManager()
     var geocoder = CLGeocoder()
     
     override func viewDidLoad() {
         load()
-    navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        getCurrentLocation()
     }
     
     
@@ -87,14 +88,13 @@ class PitchMapViewController: UIViewController, CLLocationManagerDelegate  {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func getCurrentPlace(_ sender: Any){
+    
+    func getCurrentLocation() {
         placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
             if let error = error {
                 print("Pick Place error: \(error.localizedDescription)")
                 return
             }
-            self.nameLabel.text = "No current place"
-            self.addressLabel.text = ""
             if let placeLikelihoodList = placeLikelihoodList {
                 let place = placeLikelihoodList.likelihoods.first?.place
                 if let place = place {
@@ -104,5 +104,9 @@ class PitchMapViewController: UIViewController, CLLocationManagerDelegate  {
                 }
             }
         })
+    }
+    
+    @IBAction func getCurrentPlace(_ sender: Any){
+        
     }
 }

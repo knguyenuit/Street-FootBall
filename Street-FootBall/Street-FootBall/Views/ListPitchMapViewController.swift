@@ -53,8 +53,8 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
         self.mapView?.animate(to: camera)
         
         self.locationManager.stopUpdatingLocation()
-
-       
+        
+        
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
@@ -70,7 +70,7 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
         
         
         navigationController?.pushViewController(detailViewController, animated: true)
-
+        
     }
     
     override func loadView() {
@@ -87,8 +87,7 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
                 //
             } else {
                 if let result = task.result as? [Pitch] {
-                    //khi thanh cong gio cast ve va reload lai data cua table view
-                   self.stopAnimating(view: self.view)
+                    self.stopAnimating(view: self.view)
                     DispatchQueue.main.async {
                         result.forEach({ (pitch) in
                             let marker = GMSMarker()
@@ -98,7 +97,6 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
                             //marker.snippet = "VietNam"
                             marker.icon = #imageLiteral(resourceName: "icons8-Stadiumpng")
                             marker.tracksInfoWindowChanges = true
-                            self.mapView.selectedMarker = marker
                             marker.map = self.mapView
                             
                             marker.userData = pitch
@@ -109,8 +107,8 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
                 }
             }
         }
-
-      
+        
+        
         
         self.mapView.camera = GMSCameraPosition.camera(withLatitude: 10.871137, longitude: 106.796268, zoom: 15)
     }
@@ -125,7 +123,7 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
         vc.avatar = pitch.avatar
         vc.phone = pitch.phone
         vc.btnOrderPitch.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-       
+        
         
         return info
         
@@ -134,7 +132,7 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
     func showActivity() {
         self.startAnimating(view: self.view)
     }
-
+    
     
     func buttonTapped(_ sender: UIButton!) {
         print("Yeah! Button is tapped!")

@@ -42,10 +42,6 @@ class ListPitchViewController: UIViewController, NVActivityIndicatorViewable {
                             //
                         } else {
                             if let result = task.result as? [Pitch] {
-                                
-                                result.forEach({ (pitch) in
-                                    Pitch.listPitch.append(pitch)
-                                })
                                 self.tblListPitch.reloadData()
                             }
                         }
@@ -60,10 +56,6 @@ class ListPitchViewController: UIViewController, NVActivityIndicatorViewable {
                     //
                 } else {
                     if let result = task.result as? [Pitch] {
-                        
-                        result.forEach({ (pitch) in
-                            Pitch.listPitch.append(pitch)
-                        })
                         self.tblListPitch.reloadData()
                     }
                 }

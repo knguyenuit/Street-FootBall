@@ -50,7 +50,7 @@ class Net {
     
     func getPitchOwner(id: Int) -> Task<Any> {
         let tcs = TaskCompletionSource<Any>()
-
+        Pitch.listPitchOwner.removeAll()
         Alamofire.request( "http://fooco.esy.es/public/api/owner/get.php" , method: .post, parameters: ["id":id], encoding: URLEncoding.default, headers : nil).log(level: .all, options: [.onlyDebug, .jsonPrettyPrint, .includeSeparator])
             .responseJSON { (response) in
                 
@@ -70,7 +70,8 @@ class Net {
                         apiResponse.data?.pitchOwner.forEach({ (results) in
                             Pitch.listPitch.append(results)
                         })
-                        tcs.set(result: Pitch.listPitch)
+                        tcs.set(result: Pitch.listPitchOwner)
+                        print("Size of list pitch: \(Pitch.listPitchOwner.count)" )
                     }
                 }
         }
@@ -82,7 +83,7 @@ class Net {
         print("----------Go to get PITCH BY DISTRICT")
         let tcs = TaskCompletionSource<Any>()
         let param = ["by": "name_location", "location_id": "\(id)", "type":"list"]
-        
+        Pitch.listPitchByDistrict.removeAll()
         Alamofire.request( "http://fooco.esy.es/public/api/pitch/get.php" , method: .post, parameters: param, encoding: URLEncoding.default, headers : nil).log(level: .all, options: [.onlyDebug, .jsonPrettyPrint, .includeSeparator])
             .responseJSON { (response) in
                 

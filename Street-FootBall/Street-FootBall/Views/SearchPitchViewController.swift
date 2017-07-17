@@ -8,13 +8,19 @@
 
 import UIKit
 import NVActivityIndicatorView
+import GoogleMaps
+import GooglePlaces
+import CoreLocation
 
-class SearchPitchViewController: UIViewController, NVActivityIndicatorViewable {
+class SearchPitchViewController: UIViewController, NVActivityIndicatorViewable, CLLocationManagerDelegate {
 
    
     @IBOutlet weak var pkDistrict: UIPickerView!
     @IBOutlet weak var tblListPitch: UITableView!
     @IBOutlet weak var btnDistrict: UIButton!
+    var placesClient: GMSPlacesClient!
+    let locationManager = CLLocationManager()
+     var listPitch = [Pitch]()
     
     let pickerData = [
         ["Thủ Đức","Quận 9","Quận 1","Quận 2","Quận 3", "Quận 4","Quận 5","Quận 6","Quận 7", "Quận 8","Tân Bình","Quận 10","Quận 11","Quận 12", "Bình Thạnh","Gò Vấp", "Tân Phú", "Bình Tân"]
@@ -29,6 +35,31 @@ class SearchPitchViewController: UIViewController, NVActivityIndicatorViewable {
         pkDistrict.delegate = self
         pkDistrict.dataSource = self
         pkDistrict.isHidden = true
+       
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        placesClient = GMSPlacesClient.shared()
+        
+        Pitch.listPitch.removeAll()
+        Net.shared.getPitch().continueWith { (task) -> Void in
+            self.stopAnimating(view: self.view)
+            if task.error != nil {
+                //
+            } else {
+                if let result = task.result as? [Pitch] {
+                    result.forEach({ (pitch) in
+                        print(pitch.name!)
+                        self.listPitch.append(pitch)
+                    })
+                    print(self.listPitch.count)
+                }
+            }
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -41,10 +72,6 @@ class SearchPitchViewController: UIViewController, NVActivityIndicatorViewable {
                 //
             } else {
                 if let result = task.result as? [Pitch] {
-                    //khi thanh cong gio cast ve va reload lai data cua table view
-                    result.forEach({ (pitch) in
-                        Pitch.listPitchByDistrict.append(pitch)
-                    })
                     self.tblListPitch.reloadData()
                 }
             }
@@ -66,15 +93,56 @@ class SearchPitchViewController: UIViewController, NVActivityIndicatorViewable {
                 //
             } else {
                 if let result = task.result as? [Pitch] {
-                    //khi thanh cong gio cast ve va reload lai data cua table view
-                    result.forEach({ (pitch) in
-                        Pitch.listPitchByDistrict.append(pitch)
-                    })
+                 
                     self.tblListPitch.reloadData()
                 }
             }
         }
     }
+    
+    func load() {
+
+        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            if let placeLikelihoodList = placeLikelihoodList {
+                let likelihood = placeLikelihoodList.likelihoods.first
+                let place = likelihood?.place
+                print(likelihood?.place.addressComponents)
+                let coordinate1 = CLLocation(latitude: (place?.coordinate.latitude)!, longitude: (place?.coordinate.longitude)!)
+                self.listPitch.forEach({ (pitch) in
+                    let coordinate2 = CLLocation(latitude: (pitch.location?.geoLocation?.lat)!, longitude: (pitch.location?.geoLocation?.lng)!)
+                    let a = Int(coordinate1.distance(from: coordinate2))
+                    if a < 3000 {
+                        print("\(pitch.name) : \(a)")
+                        Pitch.listPitchByDistrict.append(pitch)
+                    }
+                
+                    
+                                        
+            })
+                self.tblListPitch.reloadData()
+
+//                for likelihood in placeLikelihoodList.likelihoods {
+//                    let place = likelihood.place
+//                    let coordinate1 = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+//                    self.listPitch.forEach({ (pitch) in
+//                        let coordinate2 = CLLocation(latitude: (pitch.location?.geoLocation?.lat)!, longitude: (pitch.location?.geoLocation?.lng)!)
+//                        let a = Int(coordinate1.distance(from: coordinate2))
+//                        
+//                       
+//                            print("\(pitch.name!) : \(a)")
+//                        
+//                    })
+//                    self.tblListPitch.reloadData()
+//                    return
+//                }
+            }
+        })
+    }
+
     
     func refreshPitch(pitch: [Pitch]){
         Pitch.listPitchByDistrict = pitch
@@ -90,12 +158,14 @@ class SearchPitchViewController: UIViewController, NVActivityIndicatorViewable {
     }
     
     @IBAction func btnFindNearByClick(_ sender: Any) {
-        
+        Pitch.listPitchByDistrict.removeAll()
+        load()
     }
     
     @IBAction func btnBackClick(_ sender: Any) {
         (UIApplication.shared.delegate as! AppDelegate).navigation?.popViewController(animated: true)
     }
+    
 
 }
 
