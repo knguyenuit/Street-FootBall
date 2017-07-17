@@ -20,36 +20,60 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqr-2c-KHV">
-                    <rect key="frame" x="0.0" y="16" width="375" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="44" id="BLN-Z6-j5C"/>
-                    </constraints>
-                    <items>
-                        <navigationItem title="Pitch Map" id="ezg-mO-dJg">
-                            <barButtonItem key="leftBarButtonItem" title="Back" id="TaF-Aq-DPm">
-                                <connections>
-                                    <action selector="btnBackClick:" destination="-1" id="6zS-Am-AdS"/>
-                                </connections>
-                            </barButtonItem>
-                        </navigationItem>
-                    </items>
-                </navigationBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="elM-I9-TKo">
-                    <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                    <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezr-iI-FOy">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pitch Map" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaM-au-qqw">
+                            <rect key="frame" x="98" y="25.5" width="179" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="DqC-ts-Qok"/>
+                                <constraint firstAttribute="width" constant="179" id="cRb-Nn-c1C"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Wr-A9-qEL">
+                            <rect key="frame" x="8" y="27.5" width="52" height="46"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="46" id="WmY-xD-pOX"/>
+                                <constraint firstAttribute="width" constant="52" id="wNo-2k-a0j"/>
+                            </constraints>
+                            <state key="normal" image="icKeyboardArrowLeft"/>
+                            <connections>
+                                <action selector="btnBackClick:" destination="-1" eventType="touchUpInside" id="Znc-KS-b1w"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.30411589150000001" green="0.67296129469999999" blue="0.62724971770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="3Wr-A9-qEL" firstAttribute="leading" secondItem="ezr-iI-FOy" secondAttribute="leading" constant="8" id="3hV-7c-Tcw"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="DYf-O0-92B"/>
+                        <constraint firstItem="HaM-au-qqw" firstAttribute="centerX" secondItem="ezr-iI-FOy" secondAttribute="centerX" id="PCf-Vx-oVa"/>
+                        <constraint firstItem="3Wr-A9-qEL" firstAttribute="centerY" secondItem="ezr-iI-FOy" secondAttribute="centerY" id="Tfl-vF-dOj"/>
+                        <constraint firstAttribute="height" constant="100" id="hu3-5d-4DG"/>
+                        <constraint firstItem="HaM-au-qqw" firstAttribute="centerY" secondItem="ezr-iI-FOy" secondAttribute="centerY" id="kFe-XA-maJ"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="elM-I9-TKo" secondAttribute="trailing" id="5RX-Eg-pMs"/>
                 <constraint firstItem="elM-I9-TKo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5sd-TZ-9VV"/>
-                <constraint firstAttribute="trailing" secondItem="Hqr-2c-KHV" secondAttribute="trailing" id="65r-hm-fZM"/>
                 <constraint firstAttribute="bottom" secondItem="elM-I9-TKo" secondAttribute="bottom" id="DUo-GC-Pjh"/>
-                <constraint firstItem="Hqr-2c-KHV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="UaI-eQ-k2F"/>
-                <constraint firstItem="elM-I9-TKo" firstAttribute="top" secondItem="Hqr-2c-KHV" secondAttribute="bottom" id="icN-X3-lCf"/>
-                <constraint firstItem="Hqr-2c-KHV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="m3g-Y0-448"/>
+                <constraint firstItem="ezr-iI-FOy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Dux-e6-3GZ"/>
+                <constraint firstItem="elM-I9-TKo" firstAttribute="top" secondItem="ezr-iI-FOy" secondAttribute="bottom" id="WVf-Gd-nt9"/>
+                <constraint firstAttribute="trailing" secondItem="ezr-iI-FOy" secondAttribute="trailing" id="rTU-5n-xTE"/>
+                <constraint firstItem="ezr-iI-FOy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="txh-8A-tpc"/>
             </constraints>
+            <point key="canvasLocation" x="46.5" y="54.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="icKeyboardArrowLeft" width="9" height="13"/>
+    </resources>
 </document>

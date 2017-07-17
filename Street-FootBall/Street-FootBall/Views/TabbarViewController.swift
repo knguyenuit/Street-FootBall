@@ -43,6 +43,8 @@ class TabbarViewController: UIViewController, UITabBarControllerDelegate {
         view.insertSubview(tbbar.view, at: 0)
 //        view.addSubview(tbbar.view)
         
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

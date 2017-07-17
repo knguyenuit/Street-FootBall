@@ -16,13 +16,14 @@ class PitchDetailViewController: UIViewController {
     @IBOutlet weak var lbPitchPhone: UILabel!
     @IBOutlet weak var btnPitchAddress: UIButton!
     @IBOutlet weak var tvPriceBoard: UITextView!
-    
+    @IBOutlet weak var btnAddTimeSlot: UIButton!
     var pitchAvatar = ""
     var pitchName = ""
     var pitchAddress = ""
     var pitchPhone = ""
     var priceBoard = [PitchTimeSlot]()
     var arrPriceBoard = [String]()
+    var pitchID = 0
     var lat = 0.0
     var lng = 0.0
     var index = 0
@@ -38,6 +39,11 @@ class PitchDetailViewController: UIViewController {
         ivPitchAvatar.image = UIImage(data: data! as Data)
         // Do any additional setup after loading the view.
         
+        if GlobalVariable.pitchOwnerID != 0 && priceBoard.first == nil {
+            btnAddTimeSlot.isHidden = false
+        } else {
+            btnAddTimeSlot.isHidden = true
+        }
                
         
         priceBoard.forEach { (timeSlot) in
@@ -48,6 +54,10 @@ class PitchDetailViewController: UIViewController {
         }
         
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+    navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,8 +77,16 @@ class PitchDetailViewController: UIViewController {
         vc.timeSlot = priceBoard
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+   
     @IBAction func btnBackClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func btnAddTimeSlotClick(_ sender: Any) {
+        let vc = CreateTimeSlotViewController(nibName: "CreateTimeSlotViewController", bundle: nil)
+        vc.pitchID = pitchID
+        navigationController?.pushViewController(vc, animated: true)
     }
     /*
     // MARK: - Navigation

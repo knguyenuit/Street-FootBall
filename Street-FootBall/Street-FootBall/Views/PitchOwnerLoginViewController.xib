@@ -70,42 +70,38 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DZL-H2-vTB">
-                    <rect key="frame" x="0.0" y="16" width="375" height="44"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKo-2j-uGI">
+                    <rect key="frame" x="0.0" y="20" width="61" height="45"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="44" id="WRt-wm-DIi"/>
+                        <constraint firstAttribute="height" constant="45" id="LDO-zS-g1v"/>
+                        <constraint firstAttribute="width" constant="61" id="Ylk-2h-Pos"/>
                     </constraints>
-                    <items>
-                        <navigationItem title="Đăng Nhập" id="oLz-An-yls">
-                            <barButtonItem key="leftBarButtonItem" image="icKeyboardArrowLeft" id="dq4-WL-6za">
-                                <connections>
-                                    <action selector="btnBackClick:" destination="-1" id="GLG-uE-Wpx"/>
-                                </connections>
-                            </barButtonItem>
-                        </navigationItem>
-                    </items>
-                </navigationBar>
+                    <state key="normal" image="icKeyboardArrowLeft"/>
+                    <connections>
+                        <action selector="btnBackClick:" destination="-1" eventType="touchUpInside" id="P0t-50-mvp"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.30411589150000001" green="0.67296129469999999" blue="0.62724971770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="DZL-H2-vTB" firstAttribute="leading" secondItem="aCc-qB-58t" secondAttribute="leading" id="2HM-Ca-3dD"/>
                 <constraint firstAttribute="trailing" secondItem="64Y-Zq-Inb" secondAttribute="trailing" constant="37" id="A1U-r7-Db2"/>
+                <constraint firstItem="tKo-2j-uGI" firstAttribute="leading" secondItem="aCc-qB-58t" secondAttribute="leading" id="B21-Hj-c1g"/>
                 <constraint firstItem="jEv-Xb-VIh" firstAttribute="centerX" secondItem="aCc-qB-58t" secondAttribute="centerX" id="DQY-cq-Qqj"/>
                 <constraint firstItem="XAC-kJ-sX8" firstAttribute="top" secondItem="64Y-Zq-Inb" secondAttribute="bottom" constant="28" id="GhT-Tr-yWW"/>
                 <constraint firstItem="64Y-Zq-Inb" firstAttribute="leading" secondItem="aCc-qB-58t" secondAttribute="leading" constant="37" id="INU-Fg-GXE"/>
                 <constraint firstItem="64Y-Zq-Inb" firstAttribute="top" secondItem="qm4-gL-6yh" secondAttribute="bottom" constant="28" id="Ipo-DT-cUI"/>
+                <constraint firstItem="tKo-2j-uGI" firstAttribute="top" secondItem="aCc-qB-58t" secondAttribute="top" constant="20" id="IxF-bO-m0j"/>
                 <constraint firstItem="XAC-kJ-sX8" firstAttribute="width" secondItem="64Y-Zq-Inb" secondAttribute="width" id="NBL-vC-TYl"/>
                 <constraint firstItem="XAC-kJ-sX8" firstAttribute="height" secondItem="64Y-Zq-Inb" secondAttribute="height" id="OIY-ek-TJQ"/>
-                <constraint firstAttribute="trailing" secondItem="DZL-H2-vTB" secondAttribute="trailing" id="SUq-iE-7nN"/>
                 <constraint firstItem="qm4-gL-6yh" firstAttribute="centerX" secondItem="aCc-qB-58t" secondAttribute="centerX" id="Uhw-jB-stJ"/>
                 <constraint firstItem="64Y-Zq-Inb" firstAttribute="centerX" secondItem="aCc-qB-58t" secondAttribute="centerX" id="ddT-v7-RPI"/>
                 <constraint firstItem="soL-29-jhH" firstAttribute="top" secondItem="XAC-kJ-sX8" secondAttribute="bottom" constant="23" id="fHp-4i-bk4"/>
                 <constraint firstItem="jEv-Xb-VIh" firstAttribute="top" secondItem="soL-29-jhH" secondAttribute="bottom" constant="29" id="fmk-mQ-zEU"/>
-                <constraint firstItem="DZL-H2-vTB" firstAttribute="top" secondItem="aCc-qB-58t" secondAttribute="top" constant="16" id="g3v-DD-iyR"/>
                 <constraint firstItem="qm4-gL-6yh" firstAttribute="top" secondItem="aCc-qB-58t" secondAttribute="top" constant="72" id="mjt-lr-e1K"/>
                 <constraint firstItem="soL-29-jhH" firstAttribute="centerX" secondItem="aCc-qB-58t" secondAttribute="centerX" id="tHx-7O-8gY"/>
                 <constraint firstItem="XAC-kJ-sX8" firstAttribute="centerX" secondItem="aCc-qB-58t" secondAttribute="centerX" id="ybY-5u-zOB"/>
             </constraints>
+            <point key="canvasLocation" x="46.5" y="54.5"/>
         </view>
     </objects>
     <resources>

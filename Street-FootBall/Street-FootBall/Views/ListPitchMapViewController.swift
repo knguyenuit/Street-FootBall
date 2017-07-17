@@ -10,9 +10,9 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import CoreLocation
+import NVActivityIndicatorView
 
-
-class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate  {
+class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate, NVActivityIndicatorViewable  {
     
     @IBOutlet weak var vMap: UIView!
     @IBOutlet weak var lable: UILabel!
@@ -34,10 +34,11 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
     override func viewDidLoad() {
         mapView.delegate = self
         self.locationManager.delegate = self
+        showActivity()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -47,6 +48,7 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
         let location = locations.last
         
         let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, zoom: 15.0)
+        
         
         self.mapView?.animate(to: camera)
         
@@ -71,30 +73,6 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
 
     }
     
-//    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-////        vPopup.isHidden = false
-////        lbMakerLocation.text = marker.title
-////        vPopup.frame = CGRect(x: 200, y: 200, width: 200, height: 200)
-////        self.view.addSubview(vPopup)
-//        
-//        let detailViewController = PitchDetailViewController(nibName: "PitchDetailViewController", bundle: nil)
-//        let pitch = marker.userData as! Pitch
-//        detailViewController.pitchName = pitch.name!
-//        detailViewController.pitchAddress = (pitch.location?.address)!
-//        detailViewController.pitchPhone = pitch.phone!
-//        detailViewController.pitchAvatar = pitch.avatar!
-//        detailViewController.lat = (pitch.location?.geoLocation?.lat)!
-//        detailViewController.lng = (pitch.location?.geoLocation?.lng)!
-//        
-//        
-//        
-//        navigationController?.pushViewController(detailViewController, animated: true)
-//        
-//
-//        return true
-//    }
-
-    
     override func loadView() {
         super.loadView()
         mapView = GMSMapView(frame: view.bounds)
@@ -110,7 +88,7 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
             } else {
                 if let result = task.result as? [Pitch] {
                     //khi thanh cong gio cast ve va reload lai data cua table view
-                    
+                   self.stopAnimating(view: self.view)
                     DispatchQueue.main.async {
                         result.forEach({ (pitch) in
                             let marker = GMSMarker()
@@ -153,17 +131,19 @@ class ListPitchMapViewController: UIViewController, CLLocationManagerDelegate, G
         
     }
     
+    func showActivity() {
+        self.startAnimating(view: self.view)
+    }
 
     
     func buttonTapped(_ sender: UIButton!) {
         print("Yeah! Button is tapped!")
     }
     
-    
-    
     @IBAction func btnBackClick(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        (UIApplication.shared.delegate as! AppDelegate).navigation?.popViewController(animated: true)
     }
+    
 }
 
 

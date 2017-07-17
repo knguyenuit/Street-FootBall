@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11762"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,18 +21,58 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzS-Ta-7EP">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="100" width="375" height="567"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLX-0Y-3L0">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List Pitch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDn-y1-dNr">
+                            <rect key="frame" x="98" y="25" width="179" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="Bv1-R8-0a6"/>
+                                <constraint firstAttribute="width" constant="179" id="TNS-1Y-nE9"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="30"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uvh-ng-ybE">
+                            <rect key="frame" x="8" y="27" width="52" height="46"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="52" id="Cba-BY-hNn"/>
+                                <constraint firstAttribute="height" constant="46" id="NJg-Zn-W61"/>
+                            </constraints>
+                            <state key="normal" image="icKeyboardArrowLeft"/>
+                            <connections>
+                                <action selector="btnBackClick:" destination="-1" eventType="touchUpInside" id="tqJ-3y-doi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.30411589150000001" green="0.67296129469999999" blue="0.62724971770000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="Uvh-ng-ybE" firstAttribute="centerY" secondItem="GLX-0Y-3L0" secondAttribute="centerY" id="Hkw-92-x5a"/>
+                        <constraint firstItem="rDn-y1-dNr" firstAttribute="centerX" secondItem="GLX-0Y-3L0" secondAttribute="centerX" id="k2M-3f-Acm"/>
+                        <constraint firstItem="rDn-y1-dNr" firstAttribute="centerY" secondItem="GLX-0Y-3L0" secondAttribute="centerY" id="o6x-Uz-RPS"/>
+                        <constraint firstAttribute="height" constant="100" id="uAn-rg-HJr"/>
+                        <constraint firstItem="Uvh-ng-ybE" firstAttribute="leading" secondItem="GLX-0Y-3L0" secondAttribute="leading" constant="8" id="xgA-De-tQa"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="gzS-Ta-7EP" secondAttribute="bottom" id="NCl-ft-0eO"/>
-                <constraint firstItem="gzS-Ta-7EP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OeH-VS-4RT"/>
-                <constraint firstAttribute="trailing" secondItem="gzS-Ta-7EP" secondAttribute="trailing" id="mwT-jU-5Qu"/>
-                <constraint firstItem="gzS-Ta-7EP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rDa-PA-jah"/>
+                <constraint firstAttribute="trailing" secondItem="gzS-Ta-7EP" secondAttribute="trailing" id="Asa-dc-g38"/>
+                <constraint firstItem="GLX-0Y-3L0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DIq-cn-hfF"/>
+                <constraint firstAttribute="bottom" secondItem="gzS-Ta-7EP" secondAttribute="bottom" id="Ly4-kW-Jmz"/>
+                <constraint firstItem="gzS-Ta-7EP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Y23-w8-kr7"/>
+                <constraint firstAttribute="trailing" secondItem="GLX-0Y-3L0" secondAttribute="trailing" id="e3V-Ki-GWi"/>
+                <constraint firstItem="GLX-0Y-3L0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hCy-kL-GD7"/>
+                <constraint firstItem="gzS-Ta-7EP" firstAttribute="top" secondItem="GLX-0Y-3L0" secondAttribute="bottom" id="raX-ty-G0d"/>
             </constraints>
             <point key="canvasLocation" x="35.5" y="88.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="icKeyboardArrowLeft" width="9" height="13"/>
+    </resources>
 </document>

@@ -30,10 +30,12 @@ class PitchMapViewController: UIViewController, CLLocationManagerDelegate  {
     
     override func viewDidLoad() {
         load()
+    navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
-        
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func loadView() {
@@ -47,27 +49,8 @@ class PitchMapViewController: UIViewController, CLLocationManagerDelegate  {
         marker1.map = self.mapView
         self.mapView.camera = GMSCameraPosition.camera(withLatitude: lat, longitude: lng, zoom: 15)
         
-//        Net.shared.getCoordinateLocation(location: location) { (lat, long) in
-//            print("latitude: " + "\(lat)")
-//            print("long: " + "\(long)")
-//            
-//            
-//            
-//            let marker2 = GMSMarker()
-//            marker2.position = CLLocationCoordinate2D(latitude: 10.8711373
-//, longitude: 106.7962683)
-//            marker2.title = "Sydney"
-//            marker2.snippet = "Australia"
-//            marker2.map = self.mapView
-//            
-//            
-//        }
     }
     
-//    func convertData(lat: Double, long: Double){
-//        self.latitude = lat
-//        self.longitude = long
-//    }
     
     func load() {
         super.viewDidLoad()
@@ -103,6 +86,7 @@ class PitchMapViewController: UIViewController, CLLocationManagerDelegate  {
     @IBAction func btnBackClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func getCurrentPlace(_ sender: Any){
         placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
             if let error = error {

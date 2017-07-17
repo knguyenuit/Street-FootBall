@@ -22,6 +22,7 @@ class PitchOwnerLoginViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,32 +30,22 @@ class PitchOwnerLoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func btnBackClick(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
+    
     
     @IBAction func btnLoginClick(_ sender: Any) {
-//        if self.tfEmail.text == "" || self.tfPassword.text == "" {
-//            let alertController = UIAlertController(title: "Error", message: "Please enter an email and password.", preferredStyle: .alert)
-//            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//            alertController.addAction(defaultAction)
-//            self.present(alertController, animated: true, completion: nil)
-//        } else {
-//            FIRAuth.auth()?.signIn(withEmail: self.tfEmail.text!, password: self.tfPassword.text!) { (user, error) in
-//                if error == nil {
-//                    print("You have successfully logged in")
-//                    let vc = ListPitchViewController(nibName: "ListPitchViewController", bundle: nil)
-//                    self.navigationController?.pushViewController(vc, animated: true)
-//                } else {
-//                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-//                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-//                    alertController.addAction(defaultAction)
-//                    self.present(alertController, animated: true, completion: nil)
-//                }
-//            }
-//        }
         
-            let activityData = ActivityData()
+        
+        let activityData = ActivityData(size: CGSize(width: 50, height: 50),
+                                        message: "Loading...",
+                                        messageFont: UIFont.init(name: "Arial", size: 10.0),
+                                        type: NVActivityIndicatorType.ballPulse,
+                                        color: UIColor.red,
+                                        padding: 10,
+                                        displayTimeThreshold: 10,
+                                        minimumDisplayTime: 0,
+                                        backgroundColor: UIColor.gray,
+                                        textColor: UIColor.red)
+
             NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
             
         Alamofire.request( "http://fooco.esy.es/public/api/users/login.php" , method: .post, parameters: ["user_name" : tfEmail.text!, "user_pw" : tfPassword.text!], encoding: URLEncoding.default).log(level: .all, options: [.onlyDebug, .jsonPrettyPrint, .includeSeparator])

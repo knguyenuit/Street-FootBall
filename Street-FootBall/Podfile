@@ -6,14 +6,14 @@ target 'Street-FootBall' do
   use_frameworks!
 
   # Pods for Street-FootBall
-pod 'AFNetworking', '~> 3.1'
- pod 'GoogleMaps'
-  pod 'GooglePlaces'
-pod 'MBProgressHUD', '~> 1.0'
-pod ‘Alamofire’
-pod 'AlamofireActivityLogger'
-pod ‘ObjectMapper’
-pod 'NVActivityIndicatorView'
-pod 'Bolts-Swift'
-pod 'Kingfisher'
+	pod 'AFNetworking', '~> 3.1'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
+    pod 'MBProgressHUD', '~> 1.0'
+	pod ‘Alamofire’
+	pod 'AlamofireActivityLogger'
+	pod ‘ObjectMapper’
+	pod 'NVActivityIndicatorView'
+	pod 'Bolts-Swift'
+	pod 'Kingfisher'
 end

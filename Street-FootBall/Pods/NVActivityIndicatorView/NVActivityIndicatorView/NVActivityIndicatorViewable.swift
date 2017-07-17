@@ -51,16 +51,16 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
      - parameter minimumDisplayTime:   minimum display time of UI blocker.
      */
     public final func startAnimating(
-        _ size: CGSize? = nil,
-        message: String? = nil,
-        messageFont: UIFont? = nil,
-        type: NVActivityIndicatorType? = nil,
-        color: UIColor? = nil,
-        padding: CGFloat? = nil,
-        displayTimeThreshold: Int? = nil,
-        minimumDisplayTime: Int? = nil,
-        backgroundColor: UIColor? = nil,
-        textColor: UIColor? = nil) {
+        _ size: CGSize? = CGSize(width: 50, height: 50),
+        message: String? = "Loading...",
+        messageFont: UIFont? = UIFont.init(name: "Arial", size: 10.0),
+        type: NVActivityIndicatorType? = NVActivityIndicatorType.ballPulse,
+        color: UIColor? = UIColor.red,
+        padding: CGFloat? = 10,
+        displayTimeThreshold: Int? = 10,
+        minimumDisplayTime: Int? = 0,
+        backgroundColor: UIColor? = UIColor.gray,
+        textColor: UIColor? = UIColor.red) {
         let activityData = ActivityData(size: size,
                                         message: message,
                                         messageFont: messageFont,
@@ -71,7 +71,7 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
                                         minimumDisplayTime: minimumDisplayTime,
                                         backgroundColor: backgroundColor,
                                         textColor: textColor)
-
+        
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
     }
 
@@ -83,16 +83,16 @@ public extension NVActivityIndicatorViewable where Self: UIViewController {
     }
     
     public final func startAnimating(
-        _ size: CGSize? = nil,
-        message: String? = nil,
-        messageFont: UIFont? = nil,
-        type: NVActivityIndicatorType? = nil,
-        color: UIColor? = nil,
-        padding: CGFloat? = nil,
-        displayTimeThreshold: Int? = nil,
-        minimumDisplayTime: Int? = nil,
-        backgroundColor: UIColor? = nil,
-        textColor: UIColor? = nil,
+        _ size: CGSize? = CGSize(width: 50, height: 50),
+        message: String? = "Loading...",
+        messageFont: UIFont? = UIFont.init(name: "Arial", size: 10.0),
+        type: NVActivityIndicatorType? = NVActivityIndicatorType.ballPulse,
+        color: UIColor? = UIColor.red,
+        padding: CGFloat? = 10,
+        displayTimeThreshold: Int? = 10,
+        minimumDisplayTime: Int? = 0,
+        backgroundColor: UIColor? = UIColor.clear,
+        textColor: UIColor? = UIColor.red,
         view: UIView) {
         let activityData = ActivityData(size: size,
                                         message: message,

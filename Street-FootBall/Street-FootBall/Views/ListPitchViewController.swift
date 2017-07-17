@@ -12,10 +12,12 @@ import Kingfisher
 
 class ListPitchViewController: UIViewController, NVActivityIndicatorViewable {
 
+   
     @IBOutlet weak var tblListPitch: UITableView!
     var pitchOwnerID = 0
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         tblListPitch.register(UINib(nibName: "ListPitchTableViewCell", bundle: nil), forCellReuseIdentifier: "ListPitchCell")
         tblListPitch.delegate = self
@@ -23,6 +25,7 @@ class ListPitchViewController: UIViewController, NVActivityIndicatorViewable {
         
         //an hien cai quay quay
         automaticallyAdjustsScrollViewInsets = false
+        navigationController?.setNavigationBarHidden(true, animated: false)
         // Do any additional setup after loading the view.
     }
     
@@ -39,7 +42,7 @@ class ListPitchViewController: UIViewController, NVActivityIndicatorViewable {
                             //
                         } else {
                             if let result = task.result as? [Pitch] {
-                                //khi thanh cong gio cast ve va reload lai data cua table view
+                                
                                 result.forEach({ (pitch) in
                                     Pitch.listPitch.append(pitch)
                                 })
@@ -57,7 +60,7 @@ class ListPitchViewController: UIViewController, NVActivityIndicatorViewable {
                     //
                 } else {
                     if let result = task.result as? [Pitch] {
-                        //khi thanh cong gio cast ve va reload lai data cua table view
+                        
                         result.forEach({ (pitch) in
                             Pitch.listPitch.append(pitch)
                         })
@@ -87,10 +90,12 @@ class ListPitchViewController: UIViewController, NVActivityIndicatorViewable {
     }
     
     func showActivity() {
-        
         self.startAnimating(view: self.view)
     }
     
+    @IBAction func btnBackClick(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
 
 }
 
@@ -142,6 +147,8 @@ extension ListPitchViewController: UITableViewDelegate, UITableViewDataSource{
         detailViewController.lat = (pitch.location?.geoLocation?.lat)!
         detailViewController.lng = (pitch.location?.geoLocation?.lng)!
         detailViewController.priceBoard = pitch.timeSlot!
+        detailViewController.pitchID = pitch.id!
+        
         
         tblListPitch.deselectRow(at: indexPath, animated: true)
 

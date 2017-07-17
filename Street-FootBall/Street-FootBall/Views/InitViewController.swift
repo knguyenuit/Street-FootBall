@@ -53,6 +53,10 @@ class InitViewController: UIViewController {
 //        }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -33,7 +33,7 @@ class TabbarControllerPitchOwnerViewController: UIViewController, UITabBarContro
         let vcPitchProfile = PitchOwnerProfileViewController(nibName: "PitchOwnerProfileViewController", bundle: nil)
         vcPitchProfile.pitchOwnerUserName = pitchOwnerUserName
         vcPitchProfile.pitchOwnerEmail = pitchOwnerEmail
-        vcPitchProfile.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "icons-Businessman"), tag: 1)
+        vcPitchProfile.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "icons8-Male"), tag: 1)
         
         navigationListPitchOwner = UINavigationController(rootViewController: vcListPitch)
         navigationPitchOwnerProfile = UINavigationController(rootViewController: vcPitchProfile)

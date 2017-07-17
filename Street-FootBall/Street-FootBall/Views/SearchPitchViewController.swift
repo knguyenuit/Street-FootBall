@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class SearchPitchViewController: UIViewController {
+class SearchPitchViewController: UIViewController, NVActivityIndicatorViewable {
 
    
     @IBOutlet weak var pkDistrict: UIPickerView!
@@ -32,6 +33,7 @@ class SearchPitchViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+         navigationController?.setNavigationBarHidden(true, animated: false)
         if Pitch.listPitchByDistrict.isEmpty {
         Net.shared.getPitchByDistrict().continueWith { (task) -> Void in
             
@@ -49,6 +51,7 @@ class SearchPitchViewController: UIViewController {
         }
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,8 +59,9 @@ class SearchPitchViewController: UIViewController {
     
     func loadListPitchByDistrict(i: Int) {
         Pitch.listPitchByDistrict.removeAll()
+        showActivity()
         Net.shared.getPitchByDistrict(id: i).continueWith { (task) -> Void in
-            
+            self.stopAnimating(view: self.view)
             if task.error != nil {
                 //
             } else {
@@ -77,12 +81,20 @@ class SearchPitchViewController: UIViewController {
         tblListPitch.reloadData()
     }
     
+    func showActivity() {
+        self.startAnimating(view: self.view)
+    }
+    
     @IBAction func btnDistrictClick(_ sender: Any) {
          pkDistrict.isHidden = false
     }
     
     @IBAction func btnFindNearByClick(_ sender: Any) {
         
+    }
+    
+    @IBAction func btnBackClick(_ sender: Any) {
+        (UIApplication.shared.delegate as! AppDelegate).navigation?.popViewController(animated: true)
     }
 
 }

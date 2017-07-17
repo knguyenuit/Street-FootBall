@@ -25,6 +25,7 @@ class CreatePitchViewController: UIViewController {
     @IBOutlet weak var tfTimeEnd: UITextField!
     @IBOutlet weak var tvPriceBoard: UITextView!
     @IBOutlet weak var tfPrice: UITextField!
+  
     
     var pitchOwnerID = 0
     var districtID = 0
@@ -38,6 +39,7 @@ class CreatePitchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         pkDistrict.delegate = self
         pkDistrict.dataSource = self
         pkDistrict.isHidden = true
@@ -66,6 +68,7 @@ class CreatePitchViewController: UIViewController {
         pkDistrict.isHidden = false
     }
     
+    
     @IBAction func btnBackClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -78,6 +81,7 @@ class CreatePitchViewController: UIViewController {
         tfTimeStart.text = ""
         tfTimeEnd.text = ""
         tfPrice.text = ""
+        
     }
     func createPitch(){
 //        let param = [

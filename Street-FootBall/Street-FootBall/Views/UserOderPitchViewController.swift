@@ -45,6 +45,10 @@ class UserOderPitchViewController: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,6 +77,9 @@ class UserOderPitchViewController: UIViewController {
         dpkDate.isHidden = true
         btnDate.setTitle(selectedDate, for: .normal)
         
+    }
+    @IBAction func btnOrderPitchClick(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     func uploadOrderPitch() {

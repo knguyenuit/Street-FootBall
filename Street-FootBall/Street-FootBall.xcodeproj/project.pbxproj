@@ -21,6 +21,8 @@
 		8B1743851F147479009DF4A5 /* Maker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1743841F147479009DF4A5 /* Maker.swift */; };
 		8B1743891F1487A4009DF4A5 /* PitchInfoMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1743871F1487A4009DF4A5 /* PitchInfoMakerViewController.swift */; };
 		8B17438A1F1487A4009DF4A5 /* PitchInfoMakerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B1743881F1487A4009DF4A5 /* PitchInfoMakerViewController.xib */; };
+		8B2343A51F1784DA0019F401 /* CreateTimeSlotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2343A31F1784DA0019F401 /* CreateTimeSlotViewController.swift */; };
+		8B2343A61F1784DA0019F401 /* CreateTimeSlotViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B2343A41F1784DA0019F401 /* CreateTimeSlotViewController.xib */; };
 		8B23BE041F00A74F00B65659 /* APIPagination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B23BE031F00A74F00B65659 /* APIPagination.swift */; };
 		8B23BE061F00A76200B65659 /* BaseAPIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B23BE051F00A76200B65659 /* BaseAPIError.swift */; };
 		8B23BE081F00A78400B65659 /* BaseAPIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B23BE071F00A78400B65659 /* BaseAPIResponse.swift */; };
@@ -73,6 +75,8 @@
 		8B1743841F147479009DF4A5 /* Maker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Maker.swift; path = Model/Maker.swift; sourceTree = "<group>"; };
 		8B1743871F1487A4009DF4A5 /* PitchInfoMakerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PitchInfoMakerViewController.swift; path = Views/PitchInfoMakerViewController.swift; sourceTree = "<group>"; };
 		8B1743881F1487A4009DF4A5 /* PitchInfoMakerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PitchInfoMakerViewController.xib; path = Views/PitchInfoMakerViewController.xib; sourceTree = "<group>"; };
+		8B2343A31F1784DA0019F401 /* CreateTimeSlotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreateTimeSlotViewController.swift; path = Views/CreateTimeSlotViewController.swift; sourceTree = "<group>"; };
+		8B2343A41F1784DA0019F401 /* CreateTimeSlotViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CreateTimeSlotViewController.xib; path = Views/CreateTimeSlotViewController.xib; sourceTree = "<group>"; };
 		8B23BE031F00A74F00B65659 /* APIPagination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIPagination.swift; path = Net/APIPagination.swift; sourceTree = "<group>"; };
 		8B23BE051F00A76200B65659 /* BaseAPIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseAPIError.swift; path = Net/BaseAPIError.swift; sourceTree = "<group>"; };
 		8B23BE071F00A78400B65659 /* BaseAPIResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseAPIResponse.swift; path = Net/BaseAPIResponse.swift; sourceTree = "<group>"; };
@@ -172,6 +176,15 @@
 				8B1743881F1487A4009DF4A5 /* PitchInfoMakerViewController.xib */,
 			);
 			name = "Pitch Info Maker";
+			sourceTree = "<group>";
+		};
+		8B2343A21F1784C20019F401 /* CreateTimeSlot */ = {
+			isa = PBXGroup;
+			children = (
+				8B2343A31F1784DA0019F401 /* CreateTimeSlotViewController.swift */,
+				8B2343A41F1784DA0019F401 /* CreateTimeSlotViewController.xib */,
+			);
+			name = CreateTimeSlot;
 			sourceTree = "<group>";
 		};
 		8B23BE021F00A72500B65659 /* APIreponse */ = {
@@ -284,6 +297,7 @@
 		8BA91A8C1EFA1787009B619F /* Pitch */ = {
 			isa = PBXGroup;
 			children = (
+				8B2343A21F1784C20019F401 /* CreateTimeSlot */,
 				8B1743861F148786009DF4A5 /* Pitch Info Maker */,
 				8B0089FC1F0E34FF001C38FF /* Order Pitch */,
 				8B8F45A91F04B4D2001877F6 /* Pitch Owner */,
@@ -433,6 +447,7 @@
 				8BA91A881EFA0819009B619F /* ListPitchTableViewCell.xib in Resources */,
 				8BEC58821F03B96600A74029 /* TabbarControllerPitchOwnerViewController.xib in Resources */,
 				8B262BB31F01FBF50092981C /* PitchMapViewController.xib in Resources */,
+				8B2343A61F1784DA0019F401 /* CreateTimeSlotViewController.xib in Resources */,
 				8B151AB71F025B74007DAF1C /* PitchOwnerLoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +509,7 @@
 			files = (
 				8B00BD0B1EF77FAB000A391A /* ViewController.swift in Sources */,
 				8B23BE061F00A76200B65659 /* BaseAPIError.swift in Sources */,
+				8B2343A51F1784DA0019F401 /* CreateTimeSlotViewController.swift in Sources */,
 				8B1743891F1487A4009DF4A5 /* PitchInfoMakerViewController.swift in Sources */,
 				8BEC587D1F03B6FD00A74029 /* SearchPitchViewController.swift in Sources */,
 				8B262BB21F01FBF50092981C /* PitchMapViewController.swift in Sources */,
@@ -642,6 +658,7 @@
 				DEVELOPMENT_TEAM = WQDD59G548;
 				INFOPLIST_FILE = "Street-FootBall/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KhanhNguyen.Street-FootBall";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -656,6 +673,7 @@
 				DEVELOPMENT_TEAM = WQDD59G548;
 				INFOPLIST_FILE = "Street-FootBall/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.KhanhNguyen.Street-FootBall";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

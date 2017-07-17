@@ -10,9 +10,9 @@ import UIKit
 
 class PitchOwnerProfileViewController: UIViewController {
 
-    @IBOutlet weak var tfPitchOwnerUserName: UITextField!
-    @IBOutlet weak var tfPitchOwnerEmail: UITextField!
-    @IBOutlet weak var lbPitchOwnerTotalPitch: UILabel!
+    @IBOutlet weak var lbUserName: UILabel!
+    @IBOutlet weak var lbEmail: UILabel!
+    @IBOutlet weak var lbTotalPitch: UILabel!
     
     var pitchOwnerUserName = ""
     var pitchOwnerEmail = ""
@@ -21,8 +21,8 @@ class PitchOwnerProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tfPitchOwnerUserName.text = pitchOwnerUserName
-        tfPitchOwnerEmail.text = pitchOwnerEmail
+        lbUserName.text = pitchOwnerUserName
+        lbEmail.text = pitchOwnerEmail
         navigationController?.setNavigationBarHidden(true, animated: false)
         // Do any additional setup after loading the view.
     }

@@ -19,25 +19,14 @@ class Net {
     var lat = 0.0
     var lng = 0.0
     
-    func showActivity() {
-        
-//        let activityData = ActivityData(size: CGSize(width: 50, height: 50), message: "Loading Pitch...", messageFont: UIFont(name: "Avenir-Light", size: 15.0)
-//        , type: NVActivityIndicatorType.ballBeat, color: UIColor.red, padding: 10, displayTimeThreshold: 100, minimumDisplayTime: 150, backgroundColor: UIColor.clear, textColor: UIColor.purple)
-//    
-//        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-    }
-    
     func getPitch() -> Task<Any> {
         let tcs = TaskCompletionSource<Any>()
         print("----------Go to get ALL Pitch")
-        //alamofire
-        showActivity()
         let queue = DispatchQueue(label: "com.test.api", qos: .background, attributes: .concurrent)
         
         Alamofire.request( "http://fooco.esy.es//public/api/pitch/get.php?type=list&by=all" , method: .post, parameters: nil, encoding: URLEncoding.default, headers : nil).log(level: .all, options: [.onlyDebug, .jsonPrettyPrint, .includeSeparator])
             .responseJSON(queue: queue) { (response) in
                 
-//                NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
                 
                 if let statusCode = response.response?.statusCode {
                     print("STATUS CODE \(statusCode)")
@@ -61,7 +50,7 @@ class Net {
     
     func getPitchOwner(id: Int) -> Task<Any> {
         let tcs = TaskCompletionSource<Any>()
-        showActivity()
+
         Alamofire.request( "http://fooco.esy.es/public/api/owner/get.php" , method: .post, parameters: ["id":id], encoding: URLEncoding.default, headers : nil).log(level: .all, options: [.onlyDebug, .jsonPrettyPrint, .includeSeparator])
             .responseJSON { (response) in
                 
@@ -89,7 +78,7 @@ class Net {
     }
     
     func getPitchByDistrict(id: Int = 2) -> Task<Any> {
-        showActivity()
+
         print("----------Go to get PITCH BY DISTRICT")
         let tcs = TaskCompletionSource<Any>()
         let param = ["by": "name_location", "location_id": "\(id)", "type":"list"]
@@ -144,7 +133,7 @@ class Net {
     }
     
     func getCoordinate(location: String) -> Task<Any> {
-        showActivity()
+
         let tcs = TaskCompletionSource<Any>()
         let temp1 = location.replacingOccurrences(of: "Đ", with: "D")
         let temp2 = temp1.replacingOccurrences(of: "đ", with: "d")
